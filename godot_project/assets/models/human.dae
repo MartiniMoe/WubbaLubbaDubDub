@@ -5,21 +5,21 @@
 		<author>Anonymous</author>
 		<authoring_tool>Collada Exporter for Blender 2.6+, by Juan Linietsky (juan@codenix.com)</authoring_tool>
 	</contributor>
-	<created>2017-11-04T19:06:07Z</created>
-	<modified>2017-11-04T19:06:07Z</modified>
+	<created>2017-11-04T19:23:57Z</created>
+	<modified>2017-11-04T19:23:57Z</modified>
 	<unit meter="1.0" name="meter"/>
 	<up_axis>Z_UP</up_axis>
 </asset>
 <library_images>
-	<image id="id-image-29" name="human_body.png">
-		<init_from>../../../../backup/WubbaLubbaDubDub-Backup2/godot_project/assets/textures/human_body.png</init_from>
+	<image id="id-image-29" name="human_body.png.001">
+		<init_from>../textures/human_body.png</init_from>
 	</image>
-	<image id="id-image-34" name="human-face.png">
-		<init_from>../../../../backup/WubbaLubbaDubDub-Backup2/godot_project/assets/textures/human-face.png</init_from>
+	<image id="id-image-34" name="human_face.png">
+		<init_from>../textures/human_face.png</init_from>
 	</image>
 </library_images>
 <library_effects>
-	<effect id="id-fx-28" name="Bodymaterial-fx">
+	<effect id="id-fx-28" name="playerBodyMaterial-fx">
 		<profile_COMMON>
 			<newparam sid="id-fx_surf-30">
 				<surface type="2D">
@@ -66,7 +66,7 @@
 			</technique>
 		</profile_COMMON>
 	</effect>
-	<effect id="id-fx-33" name="Headmaterial-fx">
+	<effect id="id-fx-33" name="playerHeadMaterial-fx">
 		<profile_COMMON>
 			<newparam sid="id-fx_surf-35">
 				<surface type="2D">
@@ -115,10 +115,10 @@
 	</effect>
 </library_effects>
 <library_materials>
-	<material id="id-material-32" name="Bodymaterial">
+	<material id="id-material-32" name="playerBodyMaterial">
 		<instance_effect url="#id-fx-28"/>
 	</material>
-	<material id="id-material-37" name="Headmaterial">
+	<material id="id-material-37" name="playerHeadMaterial">
 		<instance_effect url="#id-fx-33"/>
 	</material>
 </library_materials>
