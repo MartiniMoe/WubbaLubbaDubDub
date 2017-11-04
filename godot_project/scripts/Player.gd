@@ -2,32 +2,45 @@ extends KinematicBody
 
 const SPEED = 4
 
+enum State {IDLE, WALKING, CLIMBING, FALLING}
+
 func _ready():
 	set_physics_process(true)
 
 var falling_speed = 0.0
+var state = State.IDLE
 func _physics_process(delta):
 	var movement = Vector3(0, 0, 0)
+	state = State.IDLE
 	
+	# MOVEMENT IN XZ
 	if Input.is_action_pressed("ui_up"):
 		movement += Vector3(0, 0, -1)
+		state = State.WALKING
 	elif Input.is_action_pressed("ui_down"):
 		movement += Vector3(0, 0, 1)
-	
+		state = State.WALKING
 	if Input.is_action_pressed("ui_left"):
 		movement += Vector3(-1, 0, 0)
+		state = State.WALKING
 	elif Input.is_action_pressed("ui_right"):
 		movement += Vector3(1, 0, 0)
-	
+		state = State.WALKING
 	movement = movement.normalized() * SPEED
 	
-	if is_on_floor():
+	# ROTATION
+	look_at(get_global_transform().origin - movement, Vector3(0, 1, 0))
+	
+	# CHECK IF NEED TO FALL
+	if $RayCastDown.is_colliding():
 		falling_speed = 0
 	else:
-		falling_speed += 0.85
+		print("not on floor")
+		falling_speed += 0.2
+		state = State.FALLING
+		movement.y = -falling_speed
 	
-	movement.y = -falling_speed
-	
+	# CLIMBING
 	for i in range(get_slide_count()):
 		var collision = null
 		if get_slide_collision(i) != null && get_slide_collision(i).collider != null:
@@ -39,5 +52,15 @@ func _physics_process(delta):
 					#movement = collision.normal * movement.dot(collision.normal)
 					movement.y = SPEED
 					falling_speed = 0.0
+					state = State.CLIMBING
 	
+	# MOVE
 	move_and_slide(movement, Vector3(0, 1, 0))
+	
+	# ANIMATE
+	if state == State.IDLE:
+		if $PlayerModel/AnimationPlayer.get_current_animation() != "idle" || !$PlayerModel/AnimationPlayer.is_playing():
+			$PlayerModel/AnimationPlayer.play("idle")
+	elif state == State.WALKING:
+		if $PlayerModel/AnimationPlayer.get_current_animation() != "walk" || !$PlayerModel/AnimationPlayer.is_playing():
+			$PlayerModel/AnimationPlayer.play("walk")

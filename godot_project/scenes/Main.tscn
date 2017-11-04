@@ -47,21 +47,21 @@ autoplay = "spot"
 [node name="Spotlight_unten" parent="." instance=ExtResource( 6 )]
 
 transform = Transform( 0.272729, 0, 0.292608, 0, 0.4, 0, -0.292608, 0, 0.272729, -10.4049, -3.633, 1.8137 )
-light_color = Color( 1, 0, 0, 1 )
+light_color = Color( 1, 0.984375, 0, 1 )
 
 [node name="Spotlight_unten2" parent="." instance=ExtResource( 6 )]
 
 transform = Transform( -0.393675, 0, -0.0708514, 0, 0.4, 0, 0.0708514, 0, -0.393675, 8.71826, -3.67358, 0 )
-light_color = Color( 0.0078125, 0, 1, 1 )
+light_color = Color( 0.96875, 1, 0, 1 )
 
 [node name="Spotlight_oben" parent="." instance=ExtResource( 7 )]
 
-transform = Transform( 0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 5.84253, 2.45415, -4.42855 )
-light_color = Color( 0, 1, 0.179688, 1 )
+transform = Transform( 0.219514, 0, -0.334385, 0, 0.4, 0, 0.334385, 0, 0.219514, 5.84253, 2.45415, -4.42855 )
+light_color = Color( 1, 0.515625, 0, 1 )
 
 [node name="Spotlight_oben2" parent="." instance=ExtResource( 7 )]
 
-transform = Transform( 0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, -3.52159, 2.45415, -4.42855 )
-light_color = Color( 0.921875, 0, 1, 1 )
+transform = Transform( -0.0482254, 0, -0.397082, 0, 0.4, 0, 0.397082, 0, -0.0482254, -3.52159, 2.45415, -4.42855 )
+light_color = Color( 1, 0.421875, 0, 1 )
 
 
