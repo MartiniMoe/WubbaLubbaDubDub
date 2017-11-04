@@ -1,6 +1,6 @@
 extends KinematicBody
 
-const SPEED = 10
+const SPEED = 5
 
 func _ready():
 	set_physics_process(true)
@@ -32,7 +32,10 @@ func _physics_process(delta):
 		var collision = null
 		if get_slide_collision(i) != null && get_slide_collision(i).collider != null:
 			collision = get_slide_collision(i)
-			if collision.collider.is_in_group("climbable") && collision.normal.angle_to(Vector3(0, 1, 0)) > PI/4.0:
+			if collision.collider.is_in_group("climbable") && \
+			   collision.normal.angle_to(Vector3(0, 1, 0)) > PI / 4.0 &&  \
+			   collision.normal.angle_to(Vector3(0, -1, 0)) > PI / 8.0:
+				#movement = collision.normal * movement.dot(collision.normal)
 				movement.y = SPEED
 				falling_speed = 0.0
 	
