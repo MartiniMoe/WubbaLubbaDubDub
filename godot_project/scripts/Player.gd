@@ -1,6 +1,6 @@
 extends KinematicBody
 
-const SPEED = 5
+const SPEED = 4
 
 func _ready():
 	set_physics_process(true)
@@ -24,7 +24,7 @@ func _physics_process(delta):
 	if is_on_floor():
 		falling_speed = 0
 	else:
-		falling_speed += 0.2
+		falling_speed += 0.85
 	
 	movement.y = -falling_speed
 	
