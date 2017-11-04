@@ -54,7 +54,6 @@ func try_place_back():
 		return false
 
 func _physics_process(delta):
-	pass
 	if state == State.BROKEN && (get_node(player).global_transform.origin - global_transform.origin).length() < selection_dist:
 		$Hilight_sphere.show()
 	else:

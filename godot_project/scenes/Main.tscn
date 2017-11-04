@@ -28,7 +28,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 15.5881, 0 )
 
 [node name="Camera" parent="." instance=ExtResource( 2 )]
 
-transform = Transform( 1, 0, 0, 0, 0.859218, 0.511611, 0, -0.511611, 0.859218, 0, 5.15782, 22.7131 )
+transform = Transform( 1, 0, 0, 0, 0.759556, 0.650443, 0, -0.650443, 0.759556, 0, 9.86014, 19.1943 )
 
 [node name="Stage" parent="." instance=ExtResource( 3 )]
 
