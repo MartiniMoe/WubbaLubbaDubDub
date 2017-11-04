@@ -13,6 +13,10 @@ func _physics_process(delta):
 	var movement = Vector3(0, 0, 0)
 	state = State.IDLE
 	
+	if Input.is_action_just_pressed("ui_select"):
+		$"../Spotlight_oben".try_place_back(global_transform.origin)
+		$"../Spotlight_oben2".try_place_back(global_transform.origin)
+	
 	# MOVEMENT IN XZ
 	if Input.is_action_pressed("ui_up"):
 		movement += Vector3(0, 0, -1)
@@ -26,6 +30,7 @@ func _physics_process(delta):
 	elif Input.is_action_pressed("ui_right"):
 		movement += Vector3(1, 0, 0)
 		state = State.WALKING
+	
 	movement = movement.normalized() * SPEED
 	
 	# ROTATION
@@ -34,6 +39,10 @@ func _physics_process(delta):
 	# CHECK IF NEED TO FALL
 	if $RayCastDown.is_colliding():
 		falling_speed = 0
+		
+		# testing
+		$"../Spotlight_oben".fall_down()
+		$"../Spotlight_oben2".fall_down()
 	else:
 		falling_speed += 0.85
 		state = State.FALLING
