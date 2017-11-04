@@ -4,6 +4,14 @@
 
 [node name="Scene Root" instance=ExtResource( 1 )]
 
+[node name="Skeleton" parent="Armature"]
+
+_sections_unfolded = [ "bones" ]
+
+[node name="Plane" parent="Armature/Skeleton"]
+
+_sections_unfolded = [ "material" ]
+
 [node name="AnimationPlayer" parent="."]
 
 _sections_unfolded = [ "Playback Options", "playback" ]

@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://scripts/Spotlight_oben.gd" type="Script" id=1]
-[ext_resource path="res://assets/models/Material_Traverse.material" type="Material" id=2]
+[ext_resource path="res://assets/models/Material_Upper_Spot.material" type="Material" id=2]
 
 [sub_resource type="CapsuleShape" id=1]
 

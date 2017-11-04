@@ -2,8 +2,8 @@
 
 importer="texture"
 type="StreamTexture"
-path.s3tc="res://.import/Soil 1_Rou.jpg-8af8ccedb51522d4c64bc440b97eade5.s3tc.stex"
-path.etc2="res://.import/Soil 1_Rou.jpg-8af8ccedb51522d4c64bc440b97eade5.etc2.stex"
+path.s3tc="res://.import/mixedmoss-albedo2.png-de316fb10a19c1abf4e5b9c8c0d23b7e.s3tc.stex"
+path.etc2="res://.import/mixedmoss-albedo2.png-de316fb10a19c1abf4e5b9c8c0d23b7e.etc2.stex"
 
 [params]
 
@@ -15,7 +15,7 @@ flags/repeat=true
 flags/filter=true
 flags/mipmaps=true
 flags/anisotropic=false
-flags/srgb=2
+flags/srgb=1
 process/fix_alpha_border=true
 process/premult_alpha=false
 process/HDR_as_SRGB=false

@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path.s3tc="res://.import/Soil 1_Rou.jpg-8af8ccedb51522d4c64bc440b97eade5.s3tc.stex"
-path.etc2="res://.import/Soil 1_Rou.jpg-8af8ccedb51522d4c64bc440b97eade5.etc2.stex"
+path.s3tc="res://.import/mixedmoss-normal2.png-2e29a6aa370f029e9870f5ff4aa1851e.s3tc.stex"
+path.etc2="res://.import/mixedmoss-normal2.png-2e29a6aa370f029e9870f5ff4aa1851e.etc2.stex"
 
 [params]
 
 compress/mode=2
 compress/lossy_quality=0.7
 compress/hdr_mode=0
-compress/normal_map=0
+compress/normal_map=1
 flags/repeat=true
 flags/filter=true
 flags/mipmaps=true
