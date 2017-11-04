@@ -178,7 +178,7 @@ transform = Transform( -0.946085, 0, -0.323917, 0, 1, 0, 0.323917, 0, -0.946085,
 
 [node name="AmpNew" parent="." instance=ExtResource( 15 )]
 
-transform = Transform( -8.44914, 0, -5.34902, 0, 10, 0, 5.34902, 0, -8.44914, -1.22664, -4.51828, 2.72855 )
+transform = Transform( -2.99137, 0, 0.227343, 0, 3, 0, -0.227343, 0, -2.99137, -0.164161, -4.28941, -4.40153 )
 _sections_unfolded = [ "Transform" ]
 
 
