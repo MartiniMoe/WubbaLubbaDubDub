@@ -24,8 +24,16 @@ func _physics_process(delta):
 	if is_on_floor():
 		falling_speed = 0
 	else:
-		falling_speed += 0.1
+		falling_speed += 0.2
 	
 	movement.y = -falling_speed
 	
-	move_and_slide(movement, Vector3(0, 1, 0))
+	var movement_remaining = move_and_slide(movement, Vector3(0, 1, 0))
+	
+	for i in range(get_slide_count()):
+		var collision = null
+		if get_slide_collision(i) != null && get_slide_collision(i).collider != null:
+			collision = get_slide_collision(i)
+			if collision.collider.is_in_group("climbable") && collision.normal.angle_to(Vector3(0, 1, 0)) > PI/4.0:
+				if movement_remaining.length() > 0.01:
+					move_and_slide(Vector3(0, SPEED, 0))
