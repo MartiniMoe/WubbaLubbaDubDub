@@ -36,7 +36,7 @@ func _physics_process(delta):
 		falling_speed = 0
 	else:
 		print("not on floor")
-		falling_speed += 0.2
+		falling_speed += 0.85
 		state = State.FALLING
 		movement.y = -falling_speed
 	
@@ -50,7 +50,7 @@ func _physics_process(delta):
 			   collision.normal.angle_to(Vector3(0, -1, 0)) > PI / 8.0:
 				if abs(movement.dot(collision.normal)) > 0:
 					#movement = collision.normal * movement.dot(collision.normal)
-					movement.y = SPEED
+					movement.y = SPEED / 2.0
 					falling_speed = 0.0
 					state = State.CLIMBING
 	
@@ -64,3 +64,6 @@ func _physics_process(delta):
 	elif state == State.WALKING:
 		if $PlayerModel/AnimationPlayer.get_current_animation() != "walk" || !$PlayerModel/AnimationPlayer.is_playing():
 			$PlayerModel/AnimationPlayer.play("walk")
+	elif state == State.CLIMBING:
+		if $PlayerModel/AnimationPlayer.get_current_animation() != "climb" || !$PlayerModel/AnimationPlayer.is_playing():
+			$PlayerModel/AnimationPlayer.play("climb")
