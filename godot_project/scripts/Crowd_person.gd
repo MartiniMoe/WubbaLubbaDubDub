@@ -9,15 +9,9 @@ var fan=Vector3(0,0,0)
 func _ready():
 	randomize()
 	Vector3(randf(),randf(),randf()).normalized() # decides who to focus on how much
-	# Called every time the node is added to the scene.
-	# Initialization here
+	
 	set_physics_process(true)
-	var rnd = randf()
-	print(str(rnd))
 	$"Scene Root/AnimationTreePlayer".set_active(true)
-	$"Scene Root/AnimationPlayer".set_speed_scale(rnd*10)
-	$"Scene Root/AnimationTreePlayer".timeseek_node_seek("seek", rnd*2)
-	pass
 
 func _physics_process(delta):
 	if(!global.spot_an[0]):
