@@ -1,0 +1,86 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://assets/models/guitarist.dae" type="PackedScene" id=1]
+
+[sub_resource type="GDScript" id=1]
+
+script/source = "extends Spatial
+
+# class member variables go here, for example:
+# var a = 2
+# var b = \"textvar\"
+var timer=0.0
+var togo=Vector2(0,0)
+
+func _ready():
+	# Called every time the node is added to the scene.
+	# Initialization here
+	set_physics_process(true)
+	$\"StaticBody/Scene Root/AnimationPlayer\".play(\"default\")
+	$\"StaticBody/Scene Root/AnimationPlayer\".get_animation(\"default\").set_loop(true)
+	pass
+
+func _physics_process(delta):
+	timer+=delta
+	var moving=Vector3(togo.x-$StaticBody.translation.x,togo.y-$StaticBody.translation.y,0)
+	moving*=delta
+	$StaticBody.translate(moving)
+	if(timer>1.0):
+		togo=Vector2(randf()*2-1,randf()*2-1)
+		timer=0
+#func _process(delta):
+#	# Called every frame. Delta is time since last frame.
+#	# Update game logic here.
+#	pass
+"
+
+[sub_resource type="CapsuleShape" id=2]
+
+radius = 0.4
+height = 2.0
+
+[node name="Spatial" type="Spatial"]
+
+script = SubResource( 1 )
+
+[node name="StaticBody" type="StaticBody" parent="."]
+
+input_ray_pickable = true
+input_capture_on_drag = false
+collision_layer = 1
+collision_mask = 1
+friction = 1.0
+bounce = 0.0
+constant_linear_velocity = Vector3( 0, 0, 0 )
+constant_angular_velocity = Vector3( 0, 0, 0 )
+
+[node name="Scene Root" parent="StaticBody" instance=ExtResource( 1 )]
+
+[node name="AnimationPlayer" parent="StaticBody/Scene Root"]
+
+_sections_unfolded = [ "playback" ]
+
+[node name="CollisionShape" type="CollisionShape" parent="StaticBody"]
+
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0.986059, 0 )
+shape = SubResource( 2 )
+disabled = false
+_sections_unfolded = [ "Transform" ]
+
+[node name="Camera" type="Camera" parent="."]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.12554 )
+projection = 0
+fov = 65.0
+near = 0.1
+far = 100.0
+keep_aspect = 1
+current = false
+cull_mask = 1048575
+environment = null
+h_offset = 0.0
+v_offset = 0.0
+doppler/tracking = 0
+
+
+[editable path="StaticBody/Scene Root"]
