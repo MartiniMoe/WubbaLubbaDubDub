@@ -123,7 +123,7 @@ _sections_unfolded = [ "Geometry", "Transform" ]
 
 [node name="Cylinder_001.001" type="MeshInstance" parent="Cylinder_001.002"]
 
-transform = Transform( 0.945076, 0, 0.326851, 0, 1, 0, -0.326851, 0, 0.945076, -2.23517e-07, 5.95, -4.76837e-07 )
+transform = Transform( 0.985426, 0, 0.170104, 0, 1, 0, -0.170104, 0, 0.985426, -2.23517e-07, 5.95, -4.76837e-07 )
 layers = 1
 material_override = null
 cast_shadow = 1
@@ -140,7 +140,7 @@ _sections_unfolded = [ "Transform" ]
 
 [node name="Cylinder_001" type="MeshInstance" parent="Cylinder_001.002/Cylinder_001.001"]
 
-transform = Transform( 0.97988, 0.199586, 0, -0.199586, 0.97988, 1.74533e-08, 3.48343e-09, -1.71021e-08, 1, 2.23517e-07, 1.6, -9.23706e-14 )
+transform = Transform( 0.954983, 0.296661, 0, -0.296661, 0.954983, 1.74533e-08, 5.1777e-09, -1.66676e-08, 1, 2.23517e-07, 1.6, -9.23706e-14 )
 layers = 1
 material_override = null
 cast_shadow = 1
@@ -160,7 +160,7 @@ _sections_unfolded = [ "Transform" ]
 transform = Transform( 0, -2.94784e-24, -1, 0, 1, 2.94784e-24, 1, 0, 0, 0, 0, 0 )
 layers = 1
 light_color = Color( 1, 1, 1, 1 )
-light_energy = 1.0
+light_energy = 2.0
 light_negative = false
 light_specular = 0.5
 light_cull_mask = -1
