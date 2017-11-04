@@ -1,18 +1,22 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://scenes/Stage.tscn" type="PackedScene" id=1]
-[ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=2]
-[ext_resource path="res://scenes/Camera.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scenes/Camera.tscn" type="PackedScene" id=2]
+[ext_resource path="res://default_env.tres" type="Environment" id=3]
+[ext_resource path="res://scenes/Stage.tscn" type="PackedScene" id=4]
 
 [node name="Main" type="Spatial"]
 
-[node name="Stage" parent="." instance=ExtResource( 1 )]
+[node name="Player" parent="." instance=ExtResource( 1 )]
 
-[node name="Player" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.82008, 0 )
 
-[node name="Camera" parent="." instance=ExtResource( 3 )]
+[node name="Camera" parent="." instance=ExtResource( 2 )]
 
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.481114, 3.02986 )
-_sections_unfolded = [ "Transform" ]
+transform = Transform( 1, 0, 0, 0, 0.898998, 0.437953, 0, -0.437953, 0.898998, 0, 5.15782, 22.7131 )
+environment = ExtResource( 3 )
+_sections_unfolded = [ "Transform", "doppler" ]
+
+[node name="Stage" parent="." instance=ExtResource( 4 )]
 
 

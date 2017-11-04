@@ -1,11 +1,12 @@
 extends KinematicBody
 
-const SPEED = 200
+const SPEED = 10
 
 func _ready():
-	set_fixed_process(true)
+	set_physics_process(true)
 
-func _fixed_process(delta):
+var falling_speed = 0.0
+func _physics_process(delta):
 	var movement = Vector3()
 	
 	if Input.is_action_pressed("ui_up"):
@@ -18,6 +19,13 @@ func _fixed_process(delta):
 	elif Input.is_action_pressed("ui_right"):
 		movement += Vector3(1, 0, 0)
 	
-	movement = movement.normalized() * delta * SPEED
+	movement = movement.normalized() * SPEED
 	
-	move_and_slide(movement)
+	if is_on_floor():
+		falling_speed = 0
+	else:
+		falling_speed += 0.1
+	
+	movement.y = -falling_speed
+	
+	move_and_slide(movement, Vector3(0, 1, 0))
