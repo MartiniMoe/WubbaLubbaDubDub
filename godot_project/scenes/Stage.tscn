@@ -2,7 +2,7 @@
 
 [ext_resource path="res://assets/models/folie.material" type="Material" id=1]
 [ext_resource path="res://assets/models/holz.material" type="Material" id=2]
-[ext_resource path="res://assets/models/Material_Traverse.material" type="Material" id=3]
+[ext_resource path="res://assets/models/Material_Upper_Spot.material" type="Material" id=3]
 [ext_resource path="res://scenes/Traverse_Collision.tscn" type="PackedScene" id=4]
 
 [sub_resource type="ArrayMesh" id=1]
@@ -677,6 +677,7 @@ surfaces/0 = {
 "vertex_count": 24
 }
 custom_aabb/custom_aabb = Rect3( 0, 0, 0, 0, 0, 0 )
+_sections_unfolded = [ "surface_1" ]
 
 [sub_resource type="ArrayMesh" id=36]
 

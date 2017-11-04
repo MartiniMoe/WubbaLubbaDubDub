@@ -39,6 +39,7 @@ surfaces/0 = {
 "vertex_count": 4
 }
 custom_aabb/custom_aabb = Rect3( 0, 0, 0, 0, 0, 0 )
+_sections_unfolded = [ "surface_1" ]
 
 [sub_resource type="PlaneShape" id=3]
 
