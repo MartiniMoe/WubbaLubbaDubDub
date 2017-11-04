@@ -1,13 +1,15 @@
 extends RigidBody
 
 export var light_color = Color(1.0, 1.0, 1.0)
-export (NodePath) var player
+#export (NodePath) var player
 
-onready var start_transform = global_transform
 var place_back_dist = 3
 var selection_dist = 3
 
 enum State { FUNCTIONAL, WEARING, BROKEN }
+
+var player
+var start_transform
 
 var state = State.FUNCTIONAL
 
@@ -15,6 +17,9 @@ func _ready():
 	set_physics_process(true)
 	
 	$TheSpot/Cylinder/SpotLight.set_color(light_color)
+	
+	player = $"../Player".get_path()
+	start_transform = global_transform
 
 func fall_down():
 	if state == State.FUNCTIONAL:

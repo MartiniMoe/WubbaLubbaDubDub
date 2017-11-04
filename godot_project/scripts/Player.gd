@@ -34,8 +34,9 @@ func _physics_process(delta):
 				break
 			
 			if node.state == node.State.WEARING:
-				unwear(node)
 				var placed_back = node.try_place_back()
+				if placed_back:
+					unwear(node)
 	
 	# MOVEMENT IN XZ
 	if Input.is_action_pressed("ui_up"):
