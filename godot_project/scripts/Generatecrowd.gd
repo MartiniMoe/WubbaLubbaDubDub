@@ -3,17 +3,18 @@ extends Spatial
 # class member variables go here, for example:
 # var a = 2
 # var b = "textvar"
-var fan=[]
+var fans=[]
 
 func _ready():
 	# Called every time the node is added to the scene.
 	# Initialization here
-	var fans = load("res://scripts/Crowd_person.gd")
+	var fanscene = load("res://scenes/Crowdperson.tscn")
 	for i in range(0,8):
 		for j in range(0,4):
-			fan.append(persons.instance())
-			add_child(fan[i*5+j])
-			fan[i*5+j].translate((randf()*0.4-0.2)+i*2.4-12.0,0,(randf()*0.4-0.2)+j*2.4-6.0)
+			var new_fan = fanscene.instance()
+			fans.append(new_fan)
+			add_child(new_fan)
+			new_fan.translate(Vector3((randf()*1.0-0.5)+i*2.4-12.0,0,(randf()*1.0-0.5)+j*2.4-6.0))
 	pass
 
 #func _process(delta):

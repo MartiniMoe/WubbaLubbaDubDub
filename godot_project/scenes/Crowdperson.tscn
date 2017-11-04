@@ -4,7 +4,7 @@
 [ext_resource path="res://assets/models/Humanbody.material" type="Material" id=2]
 [ext_resource path="res://assets/models/Headmaterial.material" type="Material" id=3]
 
-[sub_resource type="ArrayMesh" id=2]
+[sub_resource type="ArrayMesh" id=1]
 
 resource_name = "Plane"
 surfaces/0 = {
@@ -36,7 +36,7 @@ surfaces/1 = {
 custom_aabb/custom_aabb = Rect3( 0, 0, 0, 0, 0, 0 )
 _sections_unfolded = [ "surface_1", "surface_2" ]
 
-[sub_resource type="Animation" id=3]
+[sub_resource type="Animation" id=8]
 
 resource_name = "climb"
 length = 0.5
@@ -199,7 +199,7 @@ tracks/25/loop_wrap = true
 tracks/25/imported = true
 tracks/25/keys = PoolRealArray( 0, 1, 1.9427e-08, 2.23517e-08, -1.19209e-07, -0.154081, 0.0865006, -0.124477, 0.976362, 1, 1, 1, 0.0666667, 1, 4.28015e-10, 3.35276e-09, -1.49012e-07, -0.111379, 0.146408, -0.127824, 0.974587, 1, 1, 1, 0.133333, 1, -5.8059e-08, 3.72529e-09, -1.49012e-07, -0.0247693, 0.263034, -0.132411, 0.955336, 1, 1, 1, 0.2, 1, -2.22963e-08, 2.23518e-08, -5.96046e-08, 0.0250162, 0.327212, -0.133757, 0.935102, 1, 1, 1, 0.266667, 1, 2.68775e-08, 4.47034e-08, -5.96046e-08, 0.0038456, 0.300174, -0.133299, 0.944517, 1, 1, 1, 0.333333, 1, -6.25294e-08, 3.8307e-16, -1.19209e-07, -0.0636785, 0.211431, -0.130707, 0.966518, 1, 1, 1, 0.4, 1, -2.93743e-08, -3.1665e-09, -1.19209e-07, -0.130379, 0.119955, -0.126426, 0.976027, 1, 1, 1, 0.466667, 1, 1.9427e-08, 2.23517e-08, -1.19209e-07, -0.154081, 0.0865006, -0.124477, 0.976362, 1, 1, 1, 0.5, 1, 1.9427e-08, 2.23517e-08, -1.19209e-07, -0.154081, 0.0865006, -0.124477, 0.976362, 1, 1, 1 )
 
-[sub_resource type="Animation" id=4]
+[sub_resource type="Animation" id=9]
 
 resource_name = "crowd_boo"
 length = 1.0
@@ -362,7 +362,7 @@ tracks/25/loop_wrap = true
 tracks/25/imported = true
 tracks/25/keys = PoolRealArray( 0, 1, -6.65004e-09, 1.86265e-09, -1.49012e-07, -1.39698e-09, -3.82944e-09, -4.4601e-09, 1, 1, 1, 1, 1, 1, -6.65004e-09, 1.86265e-09, -1.49012e-07, -1.39698e-09, -3.82944e-09, -4.4601e-09, 1, 1, 1, 1 )
 
-[sub_resource type="Animation" id=5]
+[sub_resource type="Animation" id=10]
 
 resource_name = "crowd_cheery"
 length = 1.0
@@ -525,7 +525,7 @@ tracks/25/loop_wrap = true
 tracks/25/imported = true
 tracks/25/keys = PoolRealArray( 0, 1, -1.99342e-09, -5.58794e-09, -2.38419e-07, 1.16415e-09, -1.11636e-08, 3.71131e-10, 1, 1, 1, 1, 1, 1, -1.99342e-09, -5.58794e-09, -2.38419e-07, 1.16415e-09, -1.11636e-08, 3.71131e-10, 1, 1, 1, 1 )
 
-[sub_resource type="Animation" id=6]
+[sub_resource type="Animation" id=11]
 
 resource_name = "idle"
 length = 1.04167
@@ -688,7 +688,7 @@ tracks/25/loop_wrap = true
 tracks/25/imported = true
 tracks/25/keys = PoolRealArray( 0, 1, -6.65004e-09, 1.86265e-09, -1.49012e-07, -1.39698e-09, -3.82944e-09, -4.4601e-09, 1, 1, 1, 1, 1.04167, 1, -6.65004e-09, 1.86265e-09, -1.49012e-07, -1.39698e-09, -3.82944e-09, -4.4601e-09, 1, 1, 1, 1 )
 
-[sub_resource type="Animation" id=7]
+[sub_resource type="Animation" id=12]
 
 resource_name = "walk"
 length = 0.5
@@ -851,7 +851,7 @@ tracks/25/loop_wrap = true
 tracks/25/imported = true
 tracks/25/keys = PoolRealArray( 0, 1, 8.00543e-10, 3.35276e-08, -1.49012e-07, 9.31323e-10, 1.4797e-08, -2.1318e-09, 1, 1, 1, 1, 0.5, 1, 8.00543e-10, 3.35276e-08, -1.49012e-07, 9.31323e-10, 1.4797e-08, -2.1318e-09, 1, 1, 1, 1 )
 
-[sub_resource type="CapsuleShape" id=8]
+[sub_resource type="CapsuleShape" id=7]
 
 radius = 0.4
 height = 2.0
@@ -874,8 +874,6 @@ laune = 100.0
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.20037, 0 )
 
 [node name="Armature" type="Spatial" parent="Scene Root"]
-
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
 
 [node name="Skeleton" type="Skeleton" parent="Scene Root/Armature"]
 
@@ -1016,7 +1014,7 @@ lod_min_distance = 0.0
 lod_min_hysteresis = 0.0
 lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
-mesh = SubResource( 2 )
+mesh = SubResource( 1 )
 skeleton = NodePath("..")
 material/0 = null
 material/1 = null
@@ -1026,11 +1024,11 @@ material/1 = null
 playback_process_mode = 1
 playback_default_blend_time = 0.0
 root_node = NodePath("..")
-anims/climb = SubResource( 3 )
-anims/crowd_boo = SubResource( 4 )
-anims/crowd_cheery = SubResource( 5 )
-anims/idle = SubResource( 6 )
-anims/walk = SubResource( 7 )
+anims/climb = SubResource( 8 )
+anims/crowd_boo = SubResource( 9 )
+anims/crowd_cheery = SubResource( 10 )
+anims/idle = SubResource( 11 )
+anims/walk = SubResource( 12 )
 playback/active = true
 playback/speed = 1.0
 blend_times = [  ]
@@ -1044,9 +1042,13 @@ base_path = NodePath("..")
 master_player = NodePath("../AnimationPlayer")
 data = {
 "active": true,
-"connections": [ "blend2", "out", 0, "anim", "blend2", 0, "anim 2", "blend2", 1 ],
+"connections": [ "blend2", "seek", 0, "seek", "out", 0, "anim", "blend2", 0, "anim 2", "blend2", 1 ],
 "master": NodePath("../AnimationPlayer"),
 "nodes": [ {
+"id": "seek",
+"position": Vector2( 380, 74 ),
+"type": "timeseek"
+}, {
 "filter": [  ],
 "from": "crowd_boo",
 "id": "anim",
@@ -1054,27 +1056,27 @@ data = {
 "type": "animation"
 }, {
 "id": "out",
-"position": Vector2( 466.687, 76.9477 ),
+"position": Vector2( 521.687, 90.9477 ),
 "type": "output"
-}, {
-"blend": 1.0,
-"filter": [  ],
-"id": "blend2",
-"position": Vector2( 251.852, 63.9802 ),
-"type": "blend2"
 }, {
 "filter": [  ],
 "from": "crowd_cheery",
 "id": "anim 2",
 "position": Vector2( 53.0125, 168.86 ),
 "type": "animation"
+}, {
+"blend": 1.0,
+"filter": [  ],
+"id": "blend2",
+"position": Vector2( 251.852, 63.9802 ),
+"type": "blend2"
 } ]
 }
 
 [node name="CollisionShape" type="CollisionShape" parent="."]
 
 transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 1, 0 )
-shape = SubResource( 8 )
+shape = SubResource( 7 )
 disabled = false
 _sections_unfolded = [ "Transform" ]
 
