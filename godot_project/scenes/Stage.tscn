@@ -2,7 +2,7 @@
 
 [ext_resource path="res://assets/models/folie.material" type="Material" id=1]
 [ext_resource path="res://assets/models/holz.material" type="Material" id=2]
-[ext_resource path="res://assets/models/Material_002.material" type="Material" id=3]
+[ext_resource path="res://assets/models/Material_Traverse.material" type="Material" id=3]
 [ext_resource path="res://scenes/Traverse_Collision.tscn" type="PackedScene" id=4]
 
 [sub_resource type="ArrayMesh" id=1]
@@ -35,6 +35,7 @@ surfaces/1 = {
 "vertex_count": 4
 }
 custom_aabb/custom_aabb = Rect3( 0, 0, 0, 0, 0, 0 )
+_sections_unfolded = [ "surface_1", "surface_2" ]
 
 [sub_resource type="ArrayMesh" id=2]
 
@@ -53,6 +54,7 @@ surfaces/0 = {
 "vertex_count": 192
 }
 custom_aabb/custom_aabb = Rect3( 0, 0, 0, 0, 0, 0 )
+_sections_unfolded = [ "surface_1" ]
 
 [sub_resource type="ArrayMesh" id=3]
 
@@ -71,6 +73,7 @@ surfaces/0 = {
 "vertex_count": 768
 }
 custom_aabb/custom_aabb = Rect3( 0, 0, 0, 0, 0, 0 )
+_sections_unfolded = [ "surface_1" ]
 
 [sub_resource type="ArrayMesh" id=4]
 
@@ -89,6 +92,7 @@ surfaces/0 = {
 "vertex_count": 768
 }
 custom_aabb/custom_aabb = Rect3( 0, 0, 0, 0, 0, 0 )
+_sections_unfolded = [ "surface_1" ]
 
 [sub_resource type="ArrayMesh" id=5]
 
@@ -107,6 +111,7 @@ surfaces/0 = {
 "vertex_count": 192
 }
 custom_aabb/custom_aabb = Rect3( 0, 0, 0, 0, 0, 0 )
+_sections_unfolded = [ "surface_1" ]
 
 [sub_resource type="ArrayMesh" id=6]
 
@@ -125,6 +130,7 @@ surfaces/0 = {
 "vertex_count": 192
 }
 custom_aabb/custom_aabb = Rect3( 0, 0, 0, 0, 0, 0 )
+_sections_unfolded = [ "surface_1" ]
 
 [sub_resource type="ArrayMesh" id=7]
 
@@ -143,6 +149,7 @@ surfaces/0 = {
 "vertex_count": 2304
 }
 custom_aabb/custom_aabb = Rect3( 0, 0, 0, 0, 0, 0 )
+_sections_unfolded = [ "surface_1" ]
 
 [sub_resource type="ArrayMesh" id=8]
 
@@ -161,6 +168,7 @@ surfaces/0 = {
 "vertex_count": 2496
 }
 custom_aabb/custom_aabb = Rect3( 0, 0, 0, 0, 0, 0 )
+_sections_unfolded = [ "surface_1" ]
 
 [sub_resource type="ArrayMesh" id=9]
 
@@ -179,6 +187,7 @@ surfaces/0 = {
 "vertex_count": 960
 }
 custom_aabb/custom_aabb = Rect3( 0, 0, 0, 0, 0, 0 )
+_sections_unfolded = [ "surface_1" ]
 
 [sub_resource type="ArrayMesh" id=10]
 
@@ -197,6 +206,7 @@ surfaces/0 = {
 "vertex_count": 960
 }
 custom_aabb/custom_aabb = Rect3( 0, 0, 0, 0, 0, 0 )
+_sections_unfolded = [ "surface_1" ]
 
 [sub_resource type="ArrayMesh" id=11]
 
@@ -215,6 +225,7 @@ surfaces/0 = {
 "vertex_count": 960
 }
 custom_aabb/custom_aabb = Rect3( 0, 0, 0, 0, 0, 0 )
+_sections_unfolded = [ "surface_1" ]
 
 [sub_resource type="ArrayMesh" id=12]
 
@@ -233,6 +244,7 @@ surfaces/0 = {
 "vertex_count": 960
 }
 custom_aabb/custom_aabb = Rect3( 0, 0, 0, 0, 0, 0 )
+_sections_unfolded = [ "surface_1" ]
 
 [sub_resource type="ArrayMesh" id=13]
 
@@ -251,6 +263,7 @@ surfaces/0 = {
 "vertex_count": 2496
 }
 custom_aabb/custom_aabb = Rect3( 0, 0, 0, 0, 0, 0 )
+_sections_unfolded = [ "surface_1" ]
 
 [sub_resource type="ArrayMesh" id=14]
 
@@ -269,6 +282,7 @@ surfaces/0 = {
 "vertex_count": 2304
 }
 custom_aabb/custom_aabb = Rect3( 0, 0, 0, 0, 0, 0 )
+_sections_unfolded = [ "surface_1" ]
 
 [sub_resource type="ArrayMesh" id=15]
 
@@ -287,6 +301,7 @@ surfaces/0 = {
 "vertex_count": 192
 }
 custom_aabb/custom_aabb = Rect3( 0, 0, 0, 0, 0, 0 )
+_sections_unfolded = [ "surface_1" ]
 
 [sub_resource type="ArrayMesh" id=16]
 
@@ -305,6 +320,7 @@ surfaces/0 = {
 "vertex_count": 192
 }
 custom_aabb/custom_aabb = Rect3( 0, 0, 0, 0, 0, 0 )
+_sections_unfolded = [ "surface_1" ]
 
 [sub_resource type="ArrayMesh" id=17]
 
@@ -323,6 +339,7 @@ surfaces/0 = {
 "vertex_count": 768
 }
 custom_aabb/custom_aabb = Rect3( 0, 0, 0, 0, 0, 0 )
+_sections_unfolded = [ "surface_1" ]
 
 [sub_resource type="ArrayMesh" id=18]
 
@@ -341,6 +358,7 @@ surfaces/0 = {
 "vertex_count": 768
 }
 custom_aabb/custom_aabb = Rect3( 0, 0, 0, 0, 0, 0 )
+_sections_unfolded = [ "surface_1" ]
 
 [sub_resource type="ArrayMesh" id=19]
 
@@ -359,6 +377,7 @@ surfaces/0 = {
 "vertex_count": 192
 }
 custom_aabb/custom_aabb = Rect3( 0, 0, 0, 0, 0, 0 )
+_sections_unfolded = [ "surface_1" ]
 
 [sub_resource type="ArrayMesh" id=20]
 
@@ -377,6 +396,7 @@ surfaces/0 = {
 "vertex_count": 192
 }
 custom_aabb/custom_aabb = Rect3( 0, 0, 0, 0, 0, 0 )
+_sections_unfolded = [ "surface_1" ]
 
 [sub_resource type="ArrayMesh" id=21]
 
@@ -395,6 +415,7 @@ surfaces/0 = {
 "vertex_count": 768
 }
 custom_aabb/custom_aabb = Rect3( 0, 0, 0, 0, 0, 0 )
+_sections_unfolded = [ "surface_1" ]
 
 [sub_resource type="ArrayMesh" id=22]
 
@@ -413,6 +434,7 @@ surfaces/0 = {
 "vertex_count": 768
 }
 custom_aabb/custom_aabb = Rect3( 0, 0, 0, 0, 0, 0 )
+_sections_unfolded = [ "surface_1" ]
 
 [sub_resource type="ArrayMesh" id=23]
 
@@ -431,6 +453,7 @@ surfaces/0 = {
 "vertex_count": 192
 }
 custom_aabb/custom_aabb = Rect3( 0, 0, 0, 0, 0, 0 )
+_sections_unfolded = [ "surface_1" ]
 
 [sub_resource type="ArrayMesh" id=24]
 
@@ -449,6 +472,7 @@ surfaces/0 = {
 "vertex_count": 192
 }
 custom_aabb/custom_aabb = Rect3( 0, 0, 0, 0, 0, 0 )
+_sections_unfolded = [ "surface_1" ]
 
 [sub_resource type="ArrayMesh" id=25]
 
@@ -467,6 +491,7 @@ surfaces/0 = {
 "vertex_count": 192
 }
 custom_aabb/custom_aabb = Rect3( 0, 0, 0, 0, 0, 0 )
+_sections_unfolded = [ "surface_1" ]
 
 [sub_resource type="ArrayMesh" id=26]
 
@@ -485,6 +510,7 @@ surfaces/0 = {
 "vertex_count": 192
 }
 custom_aabb/custom_aabb = Rect3( 0, 0, 0, 0, 0, 0 )
+_sections_unfolded = [ "surface_1" ]
 
 [sub_resource type="ArrayMesh" id=27]
 
@@ -503,6 +529,7 @@ surfaces/0 = {
 "vertex_count": 768
 }
 custom_aabb/custom_aabb = Rect3( 0, 0, 0, 0, 0, 0 )
+_sections_unfolded = [ "surface_1" ]
 
 [sub_resource type="ArrayMesh" id=28]
 
@@ -521,6 +548,7 @@ surfaces/0 = {
 "vertex_count": 768
 }
 custom_aabb/custom_aabb = Rect3( 0, 0, 0, 0, 0, 0 )
+_sections_unfolded = [ "surface_1" ]
 
 [sub_resource type="ArrayMesh" id=29]
 
@@ -611,6 +639,7 @@ surfaces/0 = {
 "vertex_count": 840
 }
 custom_aabb/custom_aabb = Rect3( 0, 0, 0, 0, 0, 0 )
+_sections_unfolded = [ "surface_1" ]
 
 [sub_resource type="ArrayMesh" id=34]
 
@@ -629,6 +658,7 @@ surfaces/0 = {
 "vertex_count": 24
 }
 custom_aabb/custom_aabb = Rect3( 0, 0, 0, 0, 0, 0 )
+_sections_unfolded = [ "surface_1" ]
 
 [sub_resource type="ArrayMesh" id=35]
 

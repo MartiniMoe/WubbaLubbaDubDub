@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://scripts/Spotlight_oben.gd" type="Script" id=1]
-[ext_resource path="res://assets/models/Material_002.material" type="Material" id=2]
+[ext_resource path="res://assets/models/Material_Traverse.material" type="Material" id=2]
 
 [sub_resource type="CapsuleShape" id=1]
 
@@ -23,6 +23,7 @@ surfaces/0 = {
 "vertex_count": 88
 }
 custom_aabb/custom_aabb = Rect3( 0, 0, 0, 0, 0, 0 )
+_sections_unfolded = [ "surface_1" ]
 
 [sub_resource type="ArrayMesh" id=3]
 
@@ -39,6 +40,7 @@ surfaces/0 = {
 "vertex_count": 341
 }
 custom_aabb/custom_aabb = Rect3( 0, 0, 0, 0, 0, 0 )
+_sections_unfolded = [ "surface_1" ]
 
 [sub_resource type="Animation" id=4]
 
@@ -116,7 +118,7 @@ lod_max_hysteresis = 0.0
 mesh = SubResource( 2 )
 skeleton = NodePath("..")
 material/0 = null
-_sections_unfolded = [ "Transform", "Visibility" ]
+_sections_unfolded = [ "Transform", "Visibility", "material" ]
 
 [node name="Cylinder" type="MeshInstance" parent="Cylinder.001"]
 
