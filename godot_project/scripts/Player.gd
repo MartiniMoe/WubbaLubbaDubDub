@@ -8,19 +8,9 @@ enum State {IDLE, WALKING, CLIMBING, FALLING}
 func _ready():
 	set_physics_process(true)
 
-func wear(node):
-	node.get_parent().remove_child(node)
-	add_child(node)
-	
-	node.global_transform = global_transform
-	node.global_transform.origin += Vector3(0, 3, 0)
-
-func unwear(node):
-	node.get_parent().remove_child(node)
-	$"../".add_child(node)
-
 var falling_speed = 0.0
 var state = State.IDLE
+var wearing_node = null
 func _physics_process(delta):
 	var movement = Vector3(0, 0, 0)
 	state = State.IDLE
@@ -30,13 +20,13 @@ func _physics_process(delta):
 			if (node.global_transform.origin - global_transform.origin).length() < SELECTION_DIST && \
 			   node.state != node.State.WEARING:
 				node.wear()
-				wear(node)
+				wearing_node = node
 				break
 			
 			if node.state == node.State.WEARING:
 				var placed_back = node.try_place_back()
 				if placed_back:
-					unwear(node)
+					wearing_node = null
 	
 	# MOVEMENT IN XZ
 	if Input.is_action_pressed("ui_up"):
@@ -61,10 +51,6 @@ func _physics_process(delta):
 	# CHECK IF NEED TO FALL
 	if $RayCastDown.is_colliding():
 		falling_speed = 0
-		
-		# testing
-		for node in get_tree().get_nodes_in_group("wearable"):
-			node.fall_down()
 	else:
 		falling_speed += 0.85
 		state = State.FALLING
@@ -83,9 +69,18 @@ func _physics_process(delta):
 					movement.y = SPEED / 2.0
 					falling_speed = 0.0
 					state = State.CLIMBING
+					
+					# testing
+					for node in get_tree().get_nodes_in_group("wearable"):
+						node.fall_down()
 	
 	# MOVE
 	move_and_slide(movement, Vector3(0, 1, 0))
+	
+	# WEAR
+	if wearing_node != null:
+		wearing_node.global_transform = global_transform
+		wearing_node.global_transform.origin += Vector3(0, 3, 0)
 	
 	# ANIMATE
 	if state == State.IDLE:
