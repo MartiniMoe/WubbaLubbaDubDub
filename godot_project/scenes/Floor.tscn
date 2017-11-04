@@ -20,6 +20,7 @@ surfaces/0 = {
 "vertex_count": 16
 }
 custom_aabb/custom_aabb = Rect3( 0, 0, 0, 0, 0, 0 )
+_sections_unfolded = [ "surface_1" ]
 
 [sub_resource type="ArrayMesh" id=2]
 
