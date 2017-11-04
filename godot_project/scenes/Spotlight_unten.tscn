@@ -57,7 +57,7 @@ points = PoolVector3Array( 0, 0, 0, 0, 18, -50, 12.7279, 12.7279, -50, 18, 0, -5
 
 [sub_resource type="CapsuleShape" id=5]
 
-radius = 2.5
+radius = 3.0
 height = 6.0
 
 [sub_resource type="Animation" id=6]
@@ -94,14 +94,14 @@ tracks/1/keys = {
 transform = Transform( 0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0, 0, 0 )
 input_ray_pickable = true
 input_capture_on_drag = false
-collision_layer = 1
-collision_mask = 1
+collision_layer = 0
+collision_mask = 0
 friction = 1.0
 bounce = 0.0
 constant_linear_velocity = Vector3( 0, 0, 0 )
 constant_angular_velocity = Vector3( 0, 0, 0 )
 script = ExtResource( 1 )
-_sections_unfolded = [ "Transform" ]
+_sections_unfolded = [ "Collision", "Transform" ]
 light_color = Color( 1, 1, 1, 1 )
 
 [node name="Cylinder_001.002" type="MeshInstance" parent="."]
@@ -123,7 +123,7 @@ _sections_unfolded = [ "Geometry", "Transform" ]
 
 [node name="Cylinder_001.001" type="MeshInstance" parent="Cylinder_001.002"]
 
-transform = Transform( 0.999851, 0, 0.0172817, 0, 1, 0, -0.0172817, 0, 0.999851, -2.23517e-07, 5.95, -4.76837e-07 )
+transform = Transform( 0.945076, 0, 0.326851, 0, 1, 0, -0.326851, 0, 0.945076, -2.23517e-07, 5.95, -4.76837e-07 )
 layers = 1
 material_override = null
 cast_shadow = 1
@@ -140,7 +140,7 @@ _sections_unfolded = [ "Transform" ]
 
 [node name="Cylinder_001" type="MeshInstance" parent="Cylinder_001.002/Cylinder_001.001"]
 
-transform = Transform( 0.996151, 0.08765, 0, -0.08765, 0.996151, 1.74533e-08, 1.52978e-09, -1.73861e-08, 1, 2.23517e-07, 1.6, -9.23706e-14 )
+transform = Transform( 0.97988, 0.199586, 0, -0.199586, 0.97988, 1.74533e-08, 3.48343e-09, -1.71021e-08, 1, 2.23517e-07, 1.6, -9.23706e-14 )
 layers = 1
 material_override = null
 cast_shadow = 1
@@ -180,7 +180,7 @@ _sections_unfolded = [ "Light", "Shadow", "Spot", "Transform" ]
 
 input_ray_pickable = true
 input_capture_on_drag = false
-collision_layer = 1
+collision_layer = 0
 collision_mask = 0
 friction = 1.0
 bounce = 0.0

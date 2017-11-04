@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/Camera.tscn" type="PackedScene" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://scenes/Stage.tscn" type="PackedScene" id=4]
 [ext_resource path="res://scenes/PlayerPH.tscn" type="PackedScene" id=5]
 [ext_resource path="res://scenes/Spotlight_unten.tscn" type="PackedScene" id=6]
+[ext_resource path="res://scenes/Spotlight_oben.tscn" type="PackedScene" id=7]
 
 [sub_resource type="Animation" id=1]
 
@@ -46,9 +47,21 @@ autoplay = "spot"
 [node name="Spotlight_unten" parent="." instance=ExtResource( 6 )]
 
 transform = Transform( 0.272729, 0, 0.292608, 0, 0.4, 0, -0.292608, 0, 0.272729, -10.4049, -3.633, 1.8137 )
+light_color = Color( 1, 0, 0, 1 )
 
 [node name="Spotlight_unten2" parent="." instance=ExtResource( 6 )]
 
 transform = Transform( -0.393675, 0, -0.0708514, 0, 0.4, 0, 0.0708514, 0, -0.393675, 8.71826, -3.67358, 0 )
+light_color = Color( 0.0078125, 0, 1, 1 )
+
+[node name="Spotlight_oben" parent="." instance=ExtResource( 7 )]
+
+transform = Transform( 0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 7.22559, 2.45415, -4.42855 )
+light_color = Color( 0, 1, 0.179688, 1 )
+
+[node name="Spotlight_oben2" parent="." instance=ExtResource( 7 )]
+
+transform = Transform( 0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, -5.86925, 2.45415, -4.42855 )
+light_color = Color( 0.921875, 0, 1, 1 )
 
 

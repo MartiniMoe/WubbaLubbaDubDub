@@ -1,6 +1,7 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=9 format=2]
 
-[ext_resource path="res://assets/models/Material_002.material" type="Material" id=1]
+[ext_resource path="res://scripts/Spotlight_oben.gd" type="Script" id=1]
+[ext_resource path="res://assets/models/Material_002.material" type="Material" id=2]
 
 [sub_resource type="SphereShape" id=1]
 
@@ -15,7 +16,7 @@ surfaces/0 = {
 "blend_shape_data": [  ],
 "format": 98243,
 "index_count": 156,
-"material": ExtResource( 1 ),
+"material": ExtResource( 2 ),
 "primitive": 4,
 "skeleton_aabb": [  ],
 "vertex_count": 88
@@ -31,7 +32,7 @@ surfaces/0 = {
 "blend_shape_data": [  ],
 "format": 98243,
 "index_count": 468,
-"material": ExtResource( 1 ),
+"material": ExtResource( 2 ),
 "primitive": 4,
 "skeleton_aabb": [  ],
 "vertex_count": 341
@@ -47,16 +48,49 @@ points = PoolVector3Array( 0, 0, 0, 0, 36, -43, 25.4558, 25.4558, -43, 36, 0, -4
 radius = 1.0
 height = 1.0
 
-[node name="Scene Root" type="StaticBody"]
+[sub_resource type="Animation" id=6]
 
+resource_name = "light_movement"
+length = 3.0
+loop = true
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("Cylinder.001:rotation_deg")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1, 2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, 45, 0 ), Vector3( 0, 0, 0 ), Vector3( 0, -45, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Cylinder.001/Cylinder:rotation_deg")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1, 2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, 10 ), Vector3( 0, 0, 35 ), Vector3( 0, 0, 25 ) ]
+}
+
+[node name="Spotlight_oben" type="StaticBody"]
+
+transform = Transform( 0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0, 0, 0 )
 input_ray_pickable = true
 input_capture_on_drag = false
-collision_layer = 1
-collision_mask = 1
+collision_layer = 0
+collision_mask = 0
 friction = 1.0
 bounce = 0.0
 constant_linear_velocity = Vector3( 0, 0, 0 )
 constant_angular_velocity = Vector3( 0, 0, 0 )
+script = ExtResource( 1 )
+_sections_unfolded = [ "Collision", "Transform" ]
+light_color = Color( 1, 1, 1, 1 )
 
 [node name="CollisionShape" type="CollisionShape" parent="."]
 
@@ -66,7 +100,7 @@ disabled = false
 
 [node name="Cylinder.001" type="MeshInstance" parent="."]
 
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7, 0 )
+transform = Transform( 0.973148, 0, 0.23018, 0, 1, 0, -0.23018, 0, 0.973148, 0, 1.7, 0 )
 layers = 1
 material_override = null
 cast_shadow = 1
@@ -79,10 +113,11 @@ lod_max_hysteresis = 0.0
 mesh = SubResource( 2 )
 skeleton = NodePath("..")
 material/0 = null
+_sections_unfolded = [ "Transform" ]
 
 [node name="Cylinder" type="MeshInstance" parent="Cylinder.001"]
 
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.79804e-30, -1.7, 0 )
+transform = Transform( 0.973585, -0.228324, 0, 0.228324, 0.973585, 0, 0, 0, 1, 2.79804e-30, -1.7, 0 )
 layers = 1
 material_override = null
 cast_shadow = 1
@@ -95,6 +130,7 @@ lod_max_hysteresis = 0.0
 mesh = SubResource( 3 )
 skeleton = NodePath("..")
 material/0 = null
+_sections_unfolded = [ "Transform" ]
 
 [node name="SpotLight" type="SpotLight" parent="Cylinder.001/Cylinder"]
 
@@ -121,12 +157,13 @@ _sections_unfolded = [ "Light", "Shadow", "Spot", "Transform" ]
 
 input_ray_pickable = true
 input_capture_on_drag = false
-collision_layer = 1
-collision_mask = 1
+collision_layer = 0
+collision_mask = 0
 friction = 1.0
 bounce = 0.0
 constant_linear_velocity = Vector3( 0, 0, 0 )
 constant_angular_velocity = Vector3( 0, 0, 0 )
+_sections_unfolded = [ "Collision" ]
 
 [node name="CollisionShape" type="CollisionShape" parent="Cylinder.001/Cylinder/SpotLight/light"]
 
@@ -150,5 +187,16 @@ transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -2.7980
 shape = SubResource( 5 )
 disabled = false
 _sections_unfolded = [ "Transform" ]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+
+playback_process_mode = 1
+playback_default_blend_time = 0.0
+root_node = NodePath("..")
+anims/light_movement = SubResource( 6 )
+playback/active = true
+playback/speed = 1.0
+blend_times = [  ]
+autoplay = "light_movement"
 
 
