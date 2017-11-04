@@ -60,12 +60,12 @@ light_color = Color( 0.96875, 1, 0, 1 )
 
 [node name="Spotlight_oben" parent="." instance=ExtResource( 7 )]
 
-transform = Transform( 0.548785, 0, -0.835963, 0, 1, 0, 0.835963, 0, 0.548785, 6.28379, 2.36976, -5.15762 )
+transform = Transform( 0.548785, 0, -0.835963, 0, 1, 0, 0.835963, 0, 0.548785, 6.28379, 2.98832, -5.15762 )
 light_color = Color( 1, 0.515625, 0, 1 )
 
 [node name="Spotlight_oben2" parent="." instance=ExtResource( 7 )]
 
-transform = Transform( -0.120564, 0, -0.992706, 0, 1, 0, 0.992706, 0, -0.120564, -3.52159, 2.45415, -4.42855 )
+transform = Transform( -0.120564, 0, -0.992706, 0, 1, 0, 0.992706, 0, -0.120564, -3.52159, 3.12623, -4.42855 )
 light_color = Color( 1, 0.421875, 0, 1 )
 
 [node name="OmniLight" parent="." instance=ExtResource( 8 )]

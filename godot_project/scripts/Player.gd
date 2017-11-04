@@ -34,7 +34,8 @@ func _physics_process(delta):
 	movement = movement.normalized() * SPEED
 	
 	# ROTATION
-	look_at(get_global_transform().origin - movement, Vector3(0, 1, 0))
+	if movement.length() != 0:
+		look_at(get_global_transform().origin - movement, Vector3(0, 1, 0))
 	
 	# CHECK IF NEED TO FALL
 	if $RayCastDown.is_colliding():
