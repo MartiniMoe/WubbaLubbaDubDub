@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/Camera.tscn" type="PackedScene" id=2]
@@ -12,6 +12,7 @@
 [ext_resource path="res://scenes/Spotlight_oben.tscn" type="PackedScene" id=10]
 [ext_resource path="res://scenes/Singer.tscn" type="PackedScene" id=11]
 [ext_resource path="res://scenes/Crowd.tscn" type="PackedScene" id=12]
+[ext_resource path="res://scenes/Guitarist.tscn" type="PackedScene" id=13]
 
 [sub_resource type="Animation" id=1]
 
@@ -24,11 +25,11 @@ step = 0.1
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
 
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 15.5881, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -12.32, -4.74003, 4.84741 )
 
 [node name="Camera" parent="." instance=ExtResource( 2 )]
 
-transform = Transform( 1, 0, 0, 0, 0.759556, 0.650443, 0, -0.650443, 0.759556, 0, 9.86014, 19.1943 )
+transform = Transform( 1, 0, 0, 0, 0.859218, 0.511611, 0, -0.511611, 0.859218, 0, 5.15782, 22.7131 )
 
 [node name="Stage" parent="." instance=ExtResource( 3 )]
 
@@ -51,11 +52,13 @@ autoplay = "spot"
 
 [node name="Spotlight_unten" parent="." instance=ExtResource( 5 )]
 
-transform = Transform( 0.333648, 0, 0.220635, 0, 0.4, 0, -0.220635, 0, 0.333648, -10.4049, -5.17476, 1.8137 )
+transform = Transform( 0.399994, 0, 0.0023566, 0, 0.4, 0, -0.0023566, 0, 0.399994, -10.4049, -5.17476, 1.8137 )
+light_color = Color( 0.894531, 0.8051, 0.0768738, 1 )
 
 [node name="Spotlight_unten2" parent="." instance=ExtResource( 5 )]
 
 transform = Transform( -0.393675, 0, -0.0708514, 0, 0.4, 0, 0.0708514, 0, -0.393675, 9.60838, -5.21534, 0 )
+light_color = Color( 1, 0.796875, 0, 1 )
 
 [node name="OmniLight" parent="." instance=ExtResource( 6 )]
 
@@ -114,13 +117,21 @@ _sections_unfolded = [ "Transform" ]
 
 [node name="Spotlight_oben" parent="." instance=ExtResource( 10 )]
 
-transform = Transform( -0.547958, 0, -0.836506, 0, 1, 0, 0.836506, 0, -0.547958, 4.12427, 1.59354, -4.49485 )
+transform = Transform( 0.303851, 0, -0.95272, 0, 1, 0, 0.95272, 0, 0.303851, 4.12427, 1.59354, -4.49485 )
 light_color = Color( 1, 0.351562, 0, 1 )
+index = 0
+
+[node name="Spotlight_oben3" parent="." instance=ExtResource( 10 )]
+
+transform = Transform( 0.476999, 0, 0.878904, 0, 1, 0, -0.878904, 0, 0.476999, 0.280115, 1.59354, 4.68052 )
+light_color = Color( 0.171875, 1, 0, 1 )
+index = 2
 
 [node name="Spotlight_oben2" parent="." instance=ExtResource( 10 )]
 
-transform = Transform( -0.977926, 0, -0.20895, 0, 1, 0, 0.20895, 0, -0.977926, -1.22387, 1.59354, -4.49485 )
-light_color = Color( 1, 0.304688, 0, 1 )
+transform = Transform( -0.368446, 0, -0.929649, 0, 1, 0, 0.929649, 0, -0.368446, -1.22387, 1.59354, -4.49485 )
+light_color = Color( 0.945312, 0, 1, 1 )
+index = 1
 
 [node name="Singer" parent="." instance=ExtResource( 11 )]
 
@@ -155,6 +166,10 @@ _sections_unfolded = [ "Directional Shadow", "Light", "Shadow" ]
 [node name="Spatial" parent="." instance=ExtResource( 12 )]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.76744, -6.07362, 13.3557 )
+
+[node name="Spatial2" parent="." instance=ExtResource( 13 )]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.719948, -4.99713, 1.01733 )
 
 
 [editable path="Floor"]
