@@ -23,7 +23,7 @@ step = 0.1
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
 
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 15.5881, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.87706, 0 )
 
 [node name="Camera" parent="." instance=ExtResource( 2 )]
 
@@ -56,57 +56,79 @@ transform = Transform( 0.333648, 0, 0.220635, 0, 0.4, 0, -0.220635, 0, 0.333648,
 
 transform = Transform( -0.393675, 0, -0.0708514, 0, 0.4, 0, 0.0708514, 0, -0.393675, 9.60838, -5.21534, 0 )
 
-[node name="OmniLight" parent="." instance=ExtResource( 6 )]
+[node name="Spotlight_oben" parent="." instance=ExtResource( 6 )]
+
+transform = Transform( 0.548785, 0, -0.835963, 0, 1, 0, 0.835963, 0, 0.548785, 6.28379, 1.44656, -4.38644 )
+light_color = Color( 1, 0.515625, 0, 1 )
+
+[node name="Spotlight_oben2" parent="." instance=ExtResource( 6 )]
+
+transform = Transform( -0.44952, 0, -0.893271, 0, 1, 0, 0.893271, 0, -0.44952, -1.31619, 1.58447, -4.42855 )
+light_color = Color( 1, 0.421875, 0, 1 )
+
+[node name="OmniLight" parent="." instance=ExtResource( 7 )]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.54176, 0 )
 light_cull_mask = -1
 
-[node name="Amp" parent="." instance=ExtResource( 7 )]
+[node name="Amp" parent="." instance=ExtResource( 8 )]
 
 transform = Transform( -2.84738, 0, -0.944683, 0, 3, 0, 0.944683, 0, -2.84738, -7.64506, -4.29511, -3.03407 )
 _sections_unfolded = [ "Transform" ]
 
+<<<<<<< HEAD
 [node name="Amp6" parent="." instance=ExtResource( 7 )]
 
 transform = Transform( -2.62582, 0, 1.45088, 0, 3, 0, -1.45088, 0, -2.62582, 6.77496, -4.29511, -3.4925 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="Amp2" parent="." instance=ExtResource( 7 )]
+=======
+[node name="Amp2" parent="." instance=ExtResource( 8 )]
+>>>>>>> 3e89af1a4be88e7e94761328569f37176447d574
 
 transform = Transform( -2.77417, 0, -1.14193, 0, 3, 0, 1.14193, 0, -2.77417, -5.46158, -4.29511, -3.89721 )
 _sections_unfolded = [ "Transform" ]
 
+<<<<<<< HEAD
 [node name="Amp7" parent="." instance=ExtResource( 7 )]
 
 transform = Transform( -2.47443, 0, 1.69624, 0, 3, 0, -1.69624, 0, -2.47443, 8.89045, -4.29511, -2.3223 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="Amp3" parent="." instance=ExtResource( 7 )]
+=======
+[node name="Amp3" parent="." instance=ExtResource( 8 )]
+>>>>>>> 3e89af1a4be88e7e94761328569f37176447d574
 
 transform = Transform( -2.72347, 0, -1.25804, 0, 3, 0, 1.25804, 0, -2.72347, -3.3394, -4.29511, -4.74924 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="Amp4" parent="." instance=ExtResource( 7 )]
+[node name="Amp4" parent="." instance=ExtResource( 8 )]
 
 transform = Transform( -2.90433, 0, -0.751577, 0, 3, 0, 0.751577, 0, -2.90433, -4.42239, -2.19653, -4.40048 )
 _sections_unfolded = [ "Transform" ]
 
+<<<<<<< HEAD
 [node name="Amp8" parent="." instance=ExtResource( 7 )]
 
 transform = Transform( -2.56379, 0, 1.55787, 0, 3, 0, -1.55787, 0, -2.56379, 7.99757, -2.19653, -2.94119 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="Amp5" parent="." instance=ExtResource( 7 )]
+=======
+[node name="Amp5" parent="." instance=ExtResource( 8 )]
+>>>>>>> 3e89af1a4be88e7e94761328569f37176447d574
 
 transform = Transform( -2.71162, 0, -1.2834, 0, 3, 0, 1.2834, 0, -2.71162, -6.67562, -2.19653, -3.49366 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="Drummer" parent="." instance=ExtResource( 8 )]
+[node name="Drummer" parent="." instance=ExtResource( 9 )]
 
 transform = Transform( 1.03379, 0, 0.94407, 0, 1.4, 0, -0.94407, 0, 1.03379, -5.95118, -4.97953, -0.956519 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="Floor" parent="." instance=ExtResource( 9 )]
+[node name="Floor" parent="." instance=ExtResource( 10 )]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -6.29647, 5.36499 )
 _sections_unfolded = [ "Transform" ]
@@ -152,6 +174,5 @@ directional_shadow_bias_split_scale = 0.25
 directional_shadow_depth_range = 0
 directional_shadow_max_distance = 200.0
 _sections_unfolded = [ "Directional Shadow", "Light", "Shadow" ]
-
 
 [editable path="Floor"]
