@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/Camera.tscn" type="PackedScene" id=2]
@@ -10,6 +10,7 @@
 [ext_resource path="res://scenes/Strobolight.tscn" type="PackedScene" id=8]
 [ext_resource path="res://scenes/Amp.tscn" type="PackedScene" id=9]
 [ext_resource path="res://scenes/Drummer.tscn" type="PackedScene" id=10]
+[ext_resource path="res://scenes/Floor.tscn" type="PackedScene" id=11]
 
 [sub_resource type="Animation" id=1]
 
@@ -26,13 +27,13 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.82008, 0 )
 
 [node name="Camera" parent="." instance=ExtResource( 2 )]
 
-transform = Transform( 1, 0, 0, 0, 0.898998, 0.437953, 0, -0.437953, 0.898998, 0, 5.15782, 22.7131 )
+transform = Transform( 1, 0, 0, 0, 0.859218, 0.511611, 0, -0.511611, 0.859218, 0, 5.15782, 22.7131 )
 environment = ExtResource( 3 )
 _sections_unfolded = [ "Transform", "doppler" ]
 
 [node name="Stage" parent="." instance=ExtResource( 4 )]
 
-transform = Transform( 3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0.00217772, 0 )
+transform = Transform( 3, 0, 0, 0, 3, 0, 0, 0, 3, 0, -1.53958, 0 )
 
 [node name="Scene Root" parent="." instance=ExtResource( 5 )]
 
@@ -51,56 +52,63 @@ autoplay = "spot"
 
 [node name="Spotlight_unten" parent="." instance=ExtResource( 6 )]
 
-transform = Transform( 0.272729, 0, 0.292608, 0, 0.4, 0, -0.292608, 0, 0.272729, -10.4049, -3.633, 1.8137 )
+transform = Transform( 0.272729, 0, 0.292608, 0, 0.4, 0, -0.292608, 0, 0.272729, -10.4049, -5.17476, 1.8137 )
 light_color = Color( 1, 0.984375, 0, 1 )
 
 [node name="Spotlight_unten2" parent="." instance=ExtResource( 6 )]
 
-transform = Transform( -0.393675, 0, -0.0708514, 0, 0.4, 0, 0.0708514, 0, -0.393675, 8.71826, -3.67358, 0 )
+transform = Transform( -0.393675, 0, -0.0708514, 0, 0.4, 0, 0.0708514, 0, -0.393675, 9.60838, -5.21534, 0 )
 light_color = Color( 0.96875, 1, 0, 1 )
 
 [node name="Spotlight_oben" parent="." instance=ExtResource( 7 )]
 
-transform = Transform( 0.548785, 0, -0.835963, 0, 1, 0, 0.835963, 0, 0.548785, 6.28379, 2.98832, -5.15762 )
+transform = Transform( 0.548785, 0, -0.835963, 0, 1, 0, 0.835963, 0, 0.548785, 6.28379, 1.44656, -5.15762 )
 light_color = Color( 1, 0.515625, 0, 1 )
 
 [node name="Spotlight_oben2" parent="." instance=ExtResource( 7 )]
 
-transform = Transform( -0.44952, 0, -0.893271, 0, 1, 0, 0.893271, 0, -0.44952, -1.31619, 3.12623, -4.42855 )
+transform = Transform( -0.44952, 0, -0.893271, 0, 1, 0, 0.893271, 0, -0.44952, -1.31619, 1.58447, -4.42855 )
 light_color = Color( 1, 0.421875, 0, 1 )
 
 [node name="OmniLight" parent="." instance=ExtResource( 8 )]
 
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.54176, 0 )
 light_cull_mask = -1
 
 [node name="Amp" parent="." instance=ExtResource( 9 )]
 
-transform = Transform( -2.84738, 0, -0.944683, 0, 3, 0, 0.944683, 0, -2.84738, -7.45908, -2.75335, -3.03407 )
+transform = Transform( -2.84738, 0, -0.944683, 0, 3, 0, 0.944683, 0, -2.84738, -7.45908, -4.29511, -3.03407 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="Amp2" parent="." instance=ExtResource( 9 )]
 
-transform = Transform( -2.77417, 0, -1.14193, 0, 3, 0, 1.14193, 0, -2.77417, -5.2756, -2.75335, -3.89721 )
+transform = Transform( -2.77417, 0, -1.14193, 0, 3, 0, 1.14193, 0, -2.77417, -5.2756, -4.29511, -3.89721 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="Amp3" parent="." instance=ExtResource( 9 )]
 
-transform = Transform( -2.72347, 0, -1.25804, 0, 3, 0, 1.25804, 0, -2.72347, -3.15343, -2.75335, -4.74924 )
+transform = Transform( -2.72347, 0, -1.25804, 0, 3, 0, 1.25804, 0, -2.72347, -3.15343, -4.29511, -4.74924 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="Amp4" parent="." instance=ExtResource( 9 )]
 
-transform = Transform( -2.90433, 0, -0.751577, 0, 3, 0, 0.751577, 0, -2.90433, -4.23641, -0.654772, -4.40048 )
+transform = Transform( -2.90433, 0, -0.751577, 0, 3, 0, 0.751577, 0, -2.90433, -4.23641, -2.19653, -4.40048 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="Amp5" parent="." instance=ExtResource( 9 )]
 
-transform = Transform( -2.71162, 0, -1.2834, 0, 3, 0, 1.2834, 0, -2.71162, -6.33945, -0.654772, -3.49495 )
+transform = Transform( -2.71162, 0, -1.2834, 0, 3, 0, 1.2834, 0, -2.71162, -6.33945, -2.19653, -3.49495 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="Drummer" parent="." instance=ExtResource( 10 )]
 
-transform = Transform( 0.88611, 0, 0.809203, 0, 1.2, 0, -0.809203, 0, 0.88611, -5.95118, -3.43777, -0.956519 )
+transform = Transform( 1.03379, 0, 0.94407, 0, 1.4, 0, -0.94407, 0, 1.03379, -5.95118, -4.97953, -0.956519 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Floor" parent="." instance=ExtResource( 11 )]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -6.29647, 5.36499 )
 _sections_unfolded = [ "Transform" ]
 
 
+[editable path="Floor"]
