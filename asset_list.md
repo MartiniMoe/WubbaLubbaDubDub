@@ -12,3 +12,7 @@
 # Stretch goal assets
 
 * Publikum
+
+# Credits
+Generator-Model: vvaris
+
