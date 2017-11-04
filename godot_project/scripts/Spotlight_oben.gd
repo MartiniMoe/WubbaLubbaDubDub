@@ -29,7 +29,7 @@ func fall_down():
 		$AnimationPlayer.stop_all()
 		$TheSpot/Cylinder/SpotLight.light_energy = 0
 		mode = RigidBody.MODE_RIGID
-		apply_impulse(Vector3(0, 0, 0), Vector3(0, 0.5, 0))
+		apply_impulse(Vector3(0, 0, 0), Vector3(0, -0.5, 0))
 
 func wear():
 	state = State.WEARING

@@ -176,6 +176,7 @@ autoplay = "light_movement"
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.672355, 0 )
 visible = false
+_sections_unfolded = [ "Transform" ]
 
 
 [editable path="Hilight_sphere"]

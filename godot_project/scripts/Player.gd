@@ -18,7 +18,7 @@ func _physics_process(delta):
 	if Input.is_action_just_pressed("ui_select"):
 		for node in get_tree().get_nodes_in_group("wearable"):
 			if (node.global_transform.origin - global_transform.origin).length() < SELECTION_DIST && \
-			   node.state != node.State.BROKEN:
+			   node.state == node.State.BROKEN:
 				node.wear()
 				wearing_node = node
 				break
