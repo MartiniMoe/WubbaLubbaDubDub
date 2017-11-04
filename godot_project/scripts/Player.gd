@@ -61,9 +61,12 @@ func _physics_process(delta):
 	if state == State.IDLE:
 		if $PlayerModel/AnimationPlayer.get_current_animation() != "idle" || !$PlayerModel/AnimationPlayer.is_playing():
 			$PlayerModel/AnimationPlayer.play("idle")
+			$PlayerModel/AnimationPlayer.set_speed_scale(1.0)
 	elif state == State.WALKING:
 		if $PlayerModel/AnimationPlayer.get_current_animation() != "walk" || !$PlayerModel/AnimationPlayer.is_playing():
 			$PlayerModel/AnimationPlayer.play("walk")
+			$PlayerModel/AnimationPlayer.set_speed_scale(0.9)
 	elif state == State.CLIMBING:
 		if $PlayerModel/AnimationPlayer.get_current_animation() != "climb" || !$PlayerModel/AnimationPlayer.is_playing():
 			$PlayerModel/AnimationPlayer.play("climb")
+			$PlayerModel/AnimationPlayer.set_speed_scale(0.6)

@@ -100,7 +100,7 @@ disabled = false
 
 [node name="Cylinder.001" type="MeshInstance" parent="."]
 
-transform = Transform( 0.900091, 0, 0.435703, 0, 1, 0, -0.435703, 0, 0.900091, 0, 1.7, 0 )
+transform = Transform( 0.725873, 0, 0.687829, 0, 1, 0, -0.687829, 0, 0.725873, 0, 1.7, 0 )
 layers = 1
 material_override = null
 cast_shadow = 1
@@ -117,7 +117,7 @@ _sections_unfolded = [ "Transform" ]
 
 [node name="Cylinder" type="MeshInstance" parent="Cylinder.001"]
 
-transform = Transform( 0.921919, -0.387383, 0, 0.387383, 0.921919, 0, 0, 0, 1, 2.79804e-30, -1.7, 0 )
+transform = Transform( 0.981899, -0.189404, 0, 0.189404, 0.981899, 0, 0, 0, 1, 2.79804e-30, -1.7, 0 )
 layers = 1
 material_override = null
 cast_shadow = 1
