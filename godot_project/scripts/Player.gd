@@ -1,17 +1,41 @@
 extends KinematicBody
 
 const SPEED = 4
+const SELECTION_DIST = 3
 
 enum State {IDLE, WALKING, CLIMBING, FALLING}
 
 func _ready():
 	set_physics_process(true)
 
+func wear(node):
+	node.get_parent().remove_child(node)
+	add_child(node)
+	
+	node.global_transform = global_transform
+	node.global_transform.origin += Vector3(0, 3, 0)
+
+func unwear(node):
+	node.get_parent().remove_child(node)
+	$"../".add_child(node)
+
 var falling_speed = 0.0
 var state = State.IDLE
 func _physics_process(delta):
 	var movement = Vector3(0, 0, 0)
 	state = State.IDLE
+	
+	if Input.is_action_just_pressed("ui_select"):
+		for node in get_tree().get_nodes_in_group("wearable"):
+			if (node.global_transform.origin - global_transform.origin).length() < SELECTION_DIST && \
+			   node.state != node.State.WEARING:
+				node.wear()
+				wear(node)
+				break
+			
+			if node.state == node.State.WEARING:
+				unwear(node)
+				var placed_back = node.try_place_back()
 	
 	# MOVEMENT IN XZ
 	if Input.is_action_pressed("ui_up"):
@@ -26,14 +50,20 @@ func _physics_process(delta):
 	elif Input.is_action_pressed("ui_right"):
 		movement += Vector3(1, 0, 0)
 		state = State.WALKING
+	
 	movement = movement.normalized() * SPEED
 	
 	# ROTATION
-	look_at(get_global_transform().origin - movement, Vector3(0, 1, 0))
+	if movement.length() != 0:
+		look_at(get_global_transform().origin - movement, Vector3(0, 1, 0))
 	
 	# CHECK IF NEED TO FALL
 	if $RayCastDown.is_colliding():
 		falling_speed = 0
+		
+		# testing
+		for node in get_tree().get_nodes_in_group("wearable"):
+			node.fall_down()
 	else:
 		falling_speed += 0.85
 		state = State.FALLING

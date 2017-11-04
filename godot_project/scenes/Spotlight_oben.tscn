@@ -1,11 +1,12 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://scripts/Spotlight_oben.gd" type="Script" id=1]
-[ext_resource path="res://assets/models/Material_002.material" type="Material" id=2]
+[ext_resource path="res://assets/models/Material_Traverse.material" type="Material" id=2]
 
-[sub_resource type="SphereShape" id=1]
+[sub_resource type="CapsuleShape" id=1]
 
-radius = 3.0
+radius = 0.45
+height = 0.55
 
 [sub_resource type="ArrayMesh" id=2]
 
@@ -22,6 +23,7 @@ surfaces/0 = {
 "vertex_count": 88
 }
 custom_aabb/custom_aabb = Rect3( 0, 0, 0, 0, 0, 0 )
+_sections_unfolded = [ "surface_1" ]
 
 [sub_resource type="ArrayMesh" id=3]
 
@@ -38,24 +40,16 @@ surfaces/0 = {
 "vertex_count": 341
 }
 custom_aabb/custom_aabb = Rect3( 0, 0, 0, 0, 0, 0 )
+_sections_unfolded = [ "surface_1" ]
 
-[sub_resource type="ConvexPolygonShape" id=4]
-
-points = PoolVector3Array( 0, 0, 0, 0, 36, -43, 25.4558, 25.4558, -43, 36, 0, -43, 25.4558, -25.4558, -43, 0, -36, -43, -25.4558, -25.4558, -43, -36, 0, -43, -25.4558, 25.4558, -43 )
-
-[sub_resource type="CapsuleShape" id=5]
-
-radius = 1.0
-height = 1.0
-
-[sub_resource type="Animation" id=6]
+[sub_resource type="Animation" id=4]
 
 resource_name = "light_movement"
 length = 3.0
 loop = true
 step = 0.1
 tracks/0/type = "value"
-tracks/0/path = NodePath("Cylinder.001:rotation_deg")
+tracks/0/path = NodePath("TheSpot:rotation_deg")
 tracks/0/interp = 2
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -66,7 +60,7 @@ tracks/0/keys = {
 "values": [ Vector3( 0, 45, 0 ), Vector3( 0, 0, 0 ), Vector3( 0, -45, 0 ) ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("Cylinder.001/Cylinder:rotation_deg")
+tracks/1/path = NodePath("TheSpot/Cylinder:rotation_deg")
 tracks/1/interp = 2
 tracks/1/loop_wrap = true
 tracks/1/imported = false
@@ -77,30 +71,44 @@ tracks/1/keys = {
 "values": [ Vector3( 0, 0, 10 ), Vector3( 0, 0, 35 ), Vector3( 0, 0, 25 ) ]
 }
 
-[node name="Spotlight_oben" type="StaticBody"]
+[node name="Spotlight_oben" type="RigidBody" groups=[
+"wearable",
+]]
 
-transform = Transform( 0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0, 0, 0 )
 input_ray_pickable = true
 input_capture_on_drag = false
-collision_layer = 0
-collision_mask = 0
+collision_layer = 1
+collision_mask = 1
+mode = 1
+mass = 1.0
 friction = 1.0
 bounce = 0.0
-constant_linear_velocity = Vector3( 0, 0, 0 )
-constant_angular_velocity = Vector3( 0, 0, 0 )
+gravity_scale = 1.0
+custom_integrator = false
+continuous_cd = false
+contacts_reported = 0
+contact_monitor = false
+sleeping = false
+can_sleep = true
+axis_lock = 0
+linear_velocity = Vector3( 0, 0, 0 )
+linear_damp = -1.0
+angular_velocity = Vector3( 0, 0, 0 )
+angular_damp = -1.0
 script = ExtResource( 1 )
 _sections_unfolded = [ "Collision", "Transform" ]
 light_color = Color( 1, 1, 1, 1 )
+player = null
 
 [node name="CollisionShape" type="CollisionShape" parent="."]
 
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.69152, 0 )
+transform = Transform( 1, 0, 0, 0, -0.167118, -0.985937, 0, 0.985937, -0.167118, 0, -0.718918, -0.0485131 )
 shape = SubResource( 1 )
 disabled = false
 
-[node name="Cylinder.001" type="MeshInstance" parent="."]
+[node name="TheSpot" type="MeshInstance" parent="."]
 
-transform = Transform( 0.725873, 0, 0.687829, 0, 1, 0, -0.687829, 0, 0.725873, 0, 1.7, 0 )
+transform = Transform( 0.290349, 0, 0.275132, 0, 0.4, 0, -0.275132, 0, 0.290349, 0, 0, 0 )
 layers = 1
 material_override = null
 cast_shadow = 1
@@ -113,9 +121,9 @@ lod_max_hysteresis = 0.0
 mesh = SubResource( 2 )
 skeleton = NodePath("..")
 material/0 = null
-_sections_unfolded = [ "Transform" ]
+_sections_unfolded = [ "Transform", "Visibility", "material" ]
 
-[node name="Cylinder" type="MeshInstance" parent="Cylinder.001"]
+[node name="Cylinder" type="MeshInstance" parent="TheSpot"]
 
 transform = Transform( 0.981899, -0.189404, 0, 0.189404, 0.981899, 0, 0, 0, 1, 2.79804e-30, -1.7, 0 )
 layers = 1
@@ -132,7 +140,7 @@ skeleton = NodePath("..")
 material/0 = null
 _sections_unfolded = [ "Transform" ]
 
-[node name="SpotLight" type="SpotLight" parent="Cylinder.001/Cylinder"]
+[node name="SpotLight" type="SpotLight" parent="TheSpot/Cylinder"]
 
 transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 2.4214e-08, -0.304176, -5.68745e-07 )
 layers = 1
@@ -149,51 +157,16 @@ shadow_reverse_cull_face = false
 editor_only = false
 spot_range = 50.0
 spot_attenuation = 1.0
-spot_angle = 40.0
-spot_angle_attenuation = 1.0
+spot_angle = 25.0
+spot_angle_attenuation = 4.43828
 _sections_unfolded = [ "Light", "Shadow", "Spot", "Transform" ]
-
-[node name="light" type="StaticBody" parent="Cylinder.001/Cylinder/SpotLight"]
-
-input_ray_pickable = true
-input_capture_on_drag = false
-collision_layer = 0
-collision_mask = 0
-friction = 1.0
-bounce = 0.0
-constant_linear_velocity = Vector3( 0, 0, 0 )
-constant_angular_velocity = Vector3( 0, 0, 0 )
-_sections_unfolded = [ "Collision" ]
-
-[node name="CollisionShape" type="CollisionShape" parent="Cylinder.001/Cylinder/SpotLight/light"]
-
-shape = SubResource( 4 )
-disabled = false
-
-[node name="StaticBody" type="StaticBody" parent="Cylinder.001/Cylinder"]
-
-input_ray_pickable = true
-input_capture_on_drag = false
-collision_layer = 1
-collision_mask = 1
-friction = 1.0
-bounce = 0.0
-constant_linear_velocity = Vector3( 0, 0, 0 )
-constant_angular_velocity = Vector3( 0, 0, 0 )
-
-[node name="CollisionShape" type="CollisionShape" parent="Cylinder.001/Cylinder/StaticBody"]
-
-transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -2.79804e-30, 0, 0 )
-shape = SubResource( 5 )
-disabled = false
-_sections_unfolded = [ "Transform" ]
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 
 playback_process_mode = 1
 playback_default_blend_time = 0.0
 root_node = NodePath("..")
-anims/light_movement = SubResource( 6 )
+anims/light_movement = SubResource( 4 )
 playback/active = true
 playback/speed = 1.0
 blend_times = [  ]
