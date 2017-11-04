@@ -1,6 +1,6 @@
 extends KinematicBody
 
-const SPEED = 5
+const SPEED = 4
 
 enum State {IDLE, WALKING, CLIMBING, FALLING}
 
