@@ -13,6 +13,7 @@ var start_transform
 
 var state = State.FUNCTIONAL
 
+var material = null
 func _ready():
 	set_physics_process(true)
 	
@@ -28,7 +29,7 @@ func fall_down():
 		$AnimationPlayer.stop_all()
 		$TheSpot/Cylinder/SpotLight.light_energy = 0
 		mode = RigidBody.MODE_RIGID
-		apply_impulse(Vector3(0, 0, 0), Vector3(0, 0.5, 0))
+		apply_impulse(Vector3(0, 0, 0), Vector3(0, -0.5, 0))
 
 func wear():
 	state = State.WEARING
@@ -39,9 +40,10 @@ func place_back():
 	if state == State.WEARING:
 		state = State.FUNCTIONAL
 		
+		set_global_transform(start_transform)
 		$AnimationPlayer.play("light_movement")
 		$TheSpot/Cylinder/SpotLight.light_energy = 4
-		global_transform = start_transform
+		print("my transform: " + str(get_global_transform()))
 
 func try_place_back():
 	if (get_node(player).global_transform.origin - start_transform.origin).length() < place_back_dist:
@@ -52,6 +54,7 @@ func try_place_back():
 		return false
 
 func _physics_process(delta):
-	if state == State.BROKEN:
-		if (get_node(player).global_transform.origin - global_transform.origin).length() < selection_dist:
-			pass
+	if state == State.BROKEN && (get_node(player).global_transform.origin - global_transform.origin).length() < selection_dist:
+		$Hilight_sphere.show()
+	else:
+		$Hilight_sphere.hide()
