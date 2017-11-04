@@ -35,8 +35,9 @@ func _physics_process(delta):
 			if collision.collider.is_in_group("climbable") && \
 			   collision.normal.angle_to(Vector3(0, 1, 0)) > PI / 4.0 &&  \
 			   collision.normal.angle_to(Vector3(0, -1, 0)) > PI / 8.0:
-				#movement = collision.normal * movement.dot(collision.normal)
-				movement.y = SPEED
-				falling_speed = 0.0
+				if abs(movement.dot(collision.normal)) > 0:
+					#movement = collision.normal * movement.dot(collision.normal)
+					movement.y = SPEED
+					falling_speed = 0.0
 	
 	move_and_slide(movement, Vector3(0, 1, 0))
