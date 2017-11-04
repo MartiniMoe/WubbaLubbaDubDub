@@ -69,10 +69,6 @@ func _physics_process(delta):
 					movement.y = SPEED / 2.0
 					falling_speed = 0.0
 					state = State.CLIMBING
-					
-					# testing
-					for node in get_tree().get_nodes_in_group("wearable"):
-						node.fall_down()
 	
 	# MOVE
 	move_and_slide(movement, Vector3(0, 1, 0))

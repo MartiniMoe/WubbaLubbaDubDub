@@ -99,6 +99,7 @@ angular_damp = -1.0
 script = ExtResource( 1 )
 _sections_unfolded = [ "Collision", "Transform" ]
 light_color = Color( 1, 1, 1, 1 )
+index = 0
 
 [node name="CollisionShape" type="CollisionShape" parent="."]
 

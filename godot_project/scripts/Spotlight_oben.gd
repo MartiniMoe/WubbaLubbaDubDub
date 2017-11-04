@@ -1,7 +1,7 @@
 extends RigidBody
 
 export var light_color = Color(1.0, 1.0, 1.0)
-#export (NodePath) var player
+export var index = 0
 
 var place_back_dist = 3
 var selection_dist = 3
@@ -44,6 +44,7 @@ func place_back():
 		$AnimationPlayer.play("light_movement")
 		$TheSpot/Cylinder/SpotLight.light_energy = 4
 		print("my transform: " + str(get_global_transform()))
+		global.spot_an[index] = true
 
 func try_place_back():
 	if (get_node(player).global_transform.origin - start_transform.origin).length() < place_back_dist:
