@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/Camera.tscn" type="PackedScene" id=2]
@@ -10,6 +10,7 @@
 [ext_resource path="res://scenes/Strobolight.tscn" type="PackedScene" id=8]
 [ext_resource path="res://scenes/Amp.tscn" type="PackedScene" id=9]
 [ext_resource path="res://scenes/Drummer.tscn" type="PackedScene" id=10]
+[ext_resource path="res://scenes/Floor.tscn" type="PackedScene" id=11]
 
 [sub_resource type="Animation" id=1]
 
@@ -26,7 +27,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.82008, 0 )
 
 [node name="Camera" parent="." instance=ExtResource( 2 )]
 
-transform = Transform( 1, 0, 0, 0, 0.898998, 0.437953, 0, -0.437953, 0.898998, 0, 5.15782, 22.7131 )
+transform = Transform( 1, 0, 0, 0, 0.859218, 0.511611, 0, -0.511611, 0.859218, 0, 5.15782, 22.7131 )
 environment = ExtResource( 3 )
 _sections_unfolded = [ "Transform", "doppler" ]
 
@@ -103,4 +104,10 @@ _sections_unfolded = [ "Transform" ]
 transform = Transform( 0.88611, 0, 0.809203, 0, 1.2, 0, -0.809203, 0, 0.88611, -5.95118, -3.43777, -0.956519 )
 _sections_unfolded = [ "Transform" ]
 
+[node name="Floor" parent="." instance=ExtResource( 11 )]
 
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -6.29647, 5.36499 )
+_sections_unfolded = [ "Transform" ]
+
+
+[editable path="Floor"]

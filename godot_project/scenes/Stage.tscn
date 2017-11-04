@@ -761,7 +761,9 @@ tracks/5/keys = PoolRealArray( 0, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0.0416667, 1,
 
 extents = Vector3( 3.61484, 0.50625, 1.8786 )
 
-[node name="Stage" type="StaticBody"]
+[node name="Stage" type="StaticBody" groups=[
+"climbable",
+]]
 
 input_ray_pickable = true
 input_capture_on_drag = false
