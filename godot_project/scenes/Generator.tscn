@@ -102,7 +102,7 @@ is_hemisphere = false
 
 [node name="Generator" parent="."]
 
-transform = Transform( 0.956073, 0, 0, 0, 1.08544, 0, 0, 0, 0.956073, 0, 0.0319278, 0 )
+transform = Transform( 0.985917, 0, 0, 0, 1.0235, 0, 0, 0, 0.985917, 0, 0.0319278, 0 )
 mesh = ExtResource( 2 )
 _sections_unfolded = [ "Transform" ]
 

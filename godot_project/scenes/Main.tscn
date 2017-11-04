@@ -173,7 +173,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.719948, -4.99713, 1.01733 )
 
 [node name="Generator" parent="." instance=ExtResource( 14 )]
 
-transform = Transform( -0.415094, 0, -0.909779, 0, 1, 0, 0.909779, 0, -0.415094, 13.0002, -6.33812, 3.99825 )
+transform = Transform( -0.946085, 0, -0.323917, 0, 1, 0, 0.323917, 0, -0.946085, 12.5757, -6.33812, 8.59857 )
 
 
 [editable path="Floor"]
