@@ -35,7 +35,6 @@ func _physics_process(delta):
 	if $RayCastDown.is_colliding():
 		falling_speed = 0
 	else:
-		print("not on floor")
 		falling_speed += 0.85
 		state = State.FALLING
 		movement.y = -falling_speed
