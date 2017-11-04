@@ -1,10 +1,18 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/Camera.tscn" type="PackedScene" id=2]
 [ext_resource path="res://default_env.tres" type="Environment" id=3]
 [ext_resource path="res://scenes/Stage.tscn" type="PackedScene" id=4]
 [ext_resource path="res://scenes/PlayerPH.tscn" type="PackedScene" id=5]
+[ext_resource path="res://scenes/Spotlight_unten.tscn" type="PackedScene" id=6]
+
+[sub_resource type="Animation" id=1]
+
+resource_name = "spot"
+length = 1.0
+loop = true
+step = 0.1
 
 [node name="Main" type="Spatial"]
 
@@ -23,5 +31,24 @@ _sections_unfolded = [ "Transform", "doppler" ]
 [node name="Scene Root" parent="." instance=ExtResource( 5 )]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.944996, 0 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+
+playback_process_mode = 1
+playback_default_blend_time = 0.0
+root_node = NodePath("..")
+anims/spot = SubResource( 1 )
+playback/active = true
+playback/speed = 1.0
+blend_times = [  ]
+autoplay = "spot"
+
+[node name="Spotlight_unten" parent="." instance=ExtResource( 6 )]
+
+transform = Transform( 0.272729, 0, 0.292608, 0, 0.4, 0, -0.292608, 0, 0.272729, -10.4049, -3.633, 1.8137 )
+
+[node name="Spotlight_unten2" parent="." instance=ExtResource( 6 )]
+
+transform = Transform( -0.393675, 0, -0.0708514, 0, 0.4, 0, 0.0708514, 0, -0.393675, 8.71826, -3.67358, 0 )
 
 
