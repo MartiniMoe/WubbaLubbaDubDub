@@ -1,11 +1,23 @@
 extends KinematicBody
 
 const SPEED = 4
+const SELECTION_DIST = 3
 
 enum State {IDLE, WALKING, CLIMBING, FALLING}
 
 func _ready():
 	set_physics_process(true)
+
+func wear(node):
+	node.get_parent().remove_child(node)
+	add_child(node)
+	
+	node.global_transform = global_transform
+	node.global_transform.origin += Vector3(0, 3, 0)
+
+func unwear(node):
+	node.get_parent().remove_child(node)
+	$"../".add_child(node)
 
 var falling_speed = 0.0
 var state = State.IDLE
@@ -14,8 +26,16 @@ func _physics_process(delta):
 	state = State.IDLE
 	
 	if Input.is_action_just_pressed("ui_select"):
-		$"../Spotlight_oben".try_place_back(global_transform.origin)
-		$"../Spotlight_oben2".try_place_back(global_transform.origin)
+		for node in get_tree().get_nodes_in_group("wearable"):
+			if (node.global_transform.origin - global_transform.origin).length() < SELECTION_DIST && \
+			   node.state != node.State.WEARING:
+				node.wear()
+				wear(node)
+				break
+			
+			if node.state == node.State.WEARING:
+				unwear(node)
+				var placed_back = node.try_place_back()
 	
 	# MOVEMENT IN XZ
 	if Input.is_action_pressed("ui_up"):
@@ -42,8 +62,8 @@ func _physics_process(delta):
 		falling_speed = 0
 		
 		# testing
-		$"../Spotlight_oben".fall_down()
-		$"../Spotlight_oben2".fall_down()
+		for node in get_tree().get_nodes_in_group("wearable"):
+			node.fall_down()
 	else:
 		falling_speed += 0.85
 		state = State.FALLING
