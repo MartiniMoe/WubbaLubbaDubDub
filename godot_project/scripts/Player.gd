@@ -7,7 +7,7 @@ func _ready():
 
 var falling_speed = 0.0
 func _physics_process(delta):
-	var movement = Vector3()
+	var movement = Vector3(0, 0, 0)
 	
 	if Input.is_action_pressed("ui_up"):
 		movement += Vector3(0, 0, -1)
@@ -24,8 +24,16 @@ func _physics_process(delta):
 	if is_on_floor():
 		falling_speed = 0
 	else:
-		falling_speed += 0.1
+		falling_speed += 0.2
 	
 	movement.y = -falling_speed
+	
+	for i in range(get_slide_count()):
+		var collision = null
+		if get_slide_collision(i) != null && get_slide_collision(i).collider != null:
+			collision = get_slide_collision(i)
+			if collision.collider.is_in_group("climbable") && collision.normal.angle_to(Vector3(0, 1, 0)) > PI/4.0:
+				movement.y = SPEED
+				falling_speed = 0.0
 	
 	move_and_slide(movement, Vector3(0, 1, 0))
