@@ -3,8 +3,17 @@ extends Control
 var acchievements=[false, false, false, false]
 var hue=0.6
 var speed=0.3
+var viewportsize=Vector2(1080,600)
 
 func _ready():
+
+	#if get_viewport().size != viewportsize:
+	#	viewportsize=get_viewport().size
+	#	$Stimmung.rect_position=Vector2(viewportsize.x-324,40)
+	#	$Sprite.position=Vector2(62,viewportsize.y-62)
+	#	$Sprite.position=Vector2(100,viewportsize.y-62)
+	#	$Sprite.position=Vector2(138,viewportsize.y-62)
+	#	$Label.rect_position=Vector2(viewportsize.x-62,viewportsize.y-59)
 	set_process(true)
 
 func from_hue(hue,sat):
@@ -25,6 +34,7 @@ func from_hue(hue,sat):
 	return color
 
 func _process(delta):
+	
 	$Healthbar.value=global.health
 	$Stimmung.value=global.mood
 	speed=global.mood/100.0
