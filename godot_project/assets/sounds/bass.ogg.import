@@ -1,0 +1,10 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/bass.ogg-3a2870e3462bfb8563d758335fb42fb0.oggstr"
+
+[params]
+
+loop=true
+loop_offset=0
