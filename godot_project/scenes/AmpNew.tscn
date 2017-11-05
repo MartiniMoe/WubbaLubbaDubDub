@@ -12,10 +12,11 @@ _sections_unfolded = [ "Transform" ]
 [node name="AnimationPlayer" parent="."]
 
 autoplay = "wobble"
+_sections_unfolded = [ "playback" ]
 
 [node name="OmniLight" type="OmniLight" parent="."]
 
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.12814 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.01277 )
 layers = 1
 light_color = Color( 1, 1, 1, 1 )
 light_energy = 1.0

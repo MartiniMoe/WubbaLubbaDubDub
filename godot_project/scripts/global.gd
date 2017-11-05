@@ -26,7 +26,11 @@ func _ready():
 var time_for_spot_to_fall = randi()%121
 var time_elapsed_for_spot_to_fall = 0.0
 
+var time_for_generator_to_fail = randi()%121
+var time_elapsed_for_generator_to_fail = 0.0
+
 func _process(delta):
+	time+=delta
 	time_elapsed_for_spot_to_fall += delta
 	if time_elapsed_for_spot_to_fall > time_for_spot_to_fall:
 		var spot_to_break = randi()%spots.size()
@@ -34,3 +38,7 @@ func _process(delta):
 		spot_an[spot_to_break] = false
 		time_elapsed_for_spot_to_fall = 0.0
 		time_for_spot_to_fall = randi()%121
+	
+	time_elapsed_for_generator_to_fail += delta
+	if time_elapsed_for_generator_to_fail > time_for_generator_to_fail:
+		get_tree().get_root().get_node("Main/Generator").break()
