@@ -1,9 +1,27 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://assets/sounds/boo.ogg" type="AudioStream" id=1]
 [ext_resource path="res://assets/sounds/cheering.ogg" type="AudioStream" id=2]
 
+[sub_resource type="GDScript" id=1]
+
+script/source = "extends Node
+
+# CROWD SOUNDS
+
+func _ready():
+	$CrowdBoo.set_volume_db(-80)
+	$CrowdCheer.set_volume_db(0)
+	set_process(true)
+
+func _process(delta):
+	var volume = 0.8 * global.mood
+	$CrowdBoo.set_volume_db((80 - volume) - 80)
+	$CrowdCheer.set_volume_db(volume - 80)"
+
 [node name="CrowdSounds" type="Node"]
+
+script = SubResource( 1 )
 
 [node name="CrowdBoo" type="AudioStreamPlayer" parent="."]
 
