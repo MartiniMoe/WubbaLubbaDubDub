@@ -8,9 +8,9 @@
 
 script/source = "extends Spatial
 
-# class member variables go here, for example:
-# var a = 2
-# var b = \"textvar\"
+enum State {FUNCTIONAL, BROKEN}
+var state = State.FUNCTIONAL
+
 var timer=0.0
 var togo=Vector2(0,0)
 
@@ -21,6 +21,14 @@ func _ready():
 	$\"StaticBody/Scene Root/AnimationPlayer\".play(\"default\")
 	$\"StaticBody/Scene Root/AnimationPlayer\".get_animation(\"default\").set_loop(true)
 	pass
+
+func set_broken(var broken):
+	if broken:
+		$\"StaticBody/Scene Root/AnimationPlayer\".stop_all()
+		state = State.BROKEN
+	else:
+		$\"StaticBody/Scene Root/AnimationPlayer\".play(\"default\")
+		state = State.FUNCTIONAL
 
 func _physics_process(delta):
 	timer+=delta

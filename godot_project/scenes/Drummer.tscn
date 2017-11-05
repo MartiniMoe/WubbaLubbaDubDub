@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=2]
+[gd_scene load_steps=29 format=2]
 
 [ext_resource path="res://assets/models/Humanbody.material" type="Material" id=1]
 [ext_resource path="res://assets/models/playerHeadMaterial.material" type="Material" id=2]
@@ -13,6 +13,24 @@
 [ext_resource path="res://assets/models/speakerswood2.material" type="Material" id=11]
 [ext_resource path="res://assets/models/solidblack.material" type="Material" id=12]
 [ext_resource path="res://assets/models/Sticktips.material" type="Material" id=13]
+
+[sub_resource type="GDScript" id=15]
+
+script/source = "extends StaticBody
+
+enum State {FUNCTIONAL, BROKEN}
+var state = State.FUNCTIONAL
+
+func _ready():
+	pass
+
+func set_broken(var broken):
+	if broken:
+		$\"AnimationPlayer\".stop_all()
+		state = State.BROKEN
+	else:
+		$\"StaticBody/Scene Root/AnimationPlayer\".play(\"default\")
+		state = State.FUNCTIONAL"
 
 [sub_resource type="ArrayMesh" id=1]
 
@@ -742,6 +760,7 @@ friction = 1.0
 bounce = 0.0
 constant_linear_velocity = Vector3( 0, 0, 0 )
 constant_angular_velocity = Vector3( 0, 0, 0 )
+script = SubResource( 15 )
 
 [node name="Armature" type="Spatial" parent="."]
 
