@@ -16,11 +16,11 @@ func _ready():
 
 
 func _physics_process(delta):
-	if(!global.spot_an[0]):
+	if(!global.spot_an[0]||!global.generator_an):
 		laune-=delta*fan.x
-	if(!global.spot_an[1]):
+	if(!global.spot_an[1]||!global.generator_an):
 		laune-=delta*fan.y
-	if(!global.spot_an[2]):
+	if(!global.spot_an[2]||!global.generator_an):
 		laune-=delta*fan.z
 	if(laune<0):
 		laune=0

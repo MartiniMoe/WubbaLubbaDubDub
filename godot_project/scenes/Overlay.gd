@@ -45,15 +45,15 @@ func _process(delta):
 		hue -= 1
 	var sat=global.mood/100.0
 	$Stimmung.self_modulate=from_hue(hue,sat)
-	if global.spot_an[0]:
+	if global.spot_an[0] and global.generator_an:
 		$Sprite.region_rect=Rect2(64,0,64,64)
 	else:
 		$Sprite.region_rect=Rect2(0,0,64,64)
-	if global.spot_an[1]:
+	if global.spot_an[1] and global.generator_an:
 		$Sprite2.region_rect=Rect2(64,0,64,64)
 	else:
 		$Sprite2.region_rect=Rect2(0,0,64,64)
-	if global.spot_an[2]:
+	if global.spot_an[2] and global.generator_an:
 		$Sprite3.region_rect=Rect2(64,0,64,64)
 	else:
 		$Sprite3.region_rect=Rect2(0,0,64,64)
