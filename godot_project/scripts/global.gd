@@ -9,6 +9,8 @@ var instruments_an = [true, true, true]
 var musicians = []
 var generator_an=true
 var points=[]
+var playerpos=Vector3(0,0,0)
+var playervisible
 
 var mood = 100 # as a percentage value? people get mad, if stuff is broken
                # for a longer period or something?

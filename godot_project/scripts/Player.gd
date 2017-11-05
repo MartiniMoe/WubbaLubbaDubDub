@@ -77,6 +77,7 @@ func _physics_process(delta):
 	
 	# MOVE
 	move_and_slide(movement, Vector3(0, 1, 0))
+	global.playerpos=global_transform.origin
 	
 	# WEAR
 	if wearing_node != null:
