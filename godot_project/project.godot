@@ -20,6 +20,12 @@ global="*res://scripts/global.gd"
 MusicBand="*res://scenes/MusicBand.tscn"
 CrowdSounds="*res://scenes/CrowdSounds.tscn"
 
+[display]
+
+window/size/width=1920
+window/size/height=1080
+window/stretch/mode="viewport"
+
 [gdnative]
 
 singletons=[  ]

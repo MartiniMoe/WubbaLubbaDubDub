@@ -1,6 +1,6 @@
 extends Node
 
-var spot_an=[true,true,true] #spot informationen welcher spot gerade läuft
+var spot_an=[true,true,true,true] #spot informationen welcher spot gerade läuft
 var spots = []
 var spots_standing = []
 var strobo = null
@@ -33,6 +33,7 @@ func _ready():
 	spots.append(get_tree().get_root().get_node("Main/Spotlight_oben"))
 	spots.append(get_tree().get_root().get_node("Main/Spotlight_oben2"))
 	spots.append(get_tree().get_root().get_node("Main/Spotlight_oben3"))
+	spots.append(get_tree().get_root().get_node("Main/Spotlight_oben4"))
 	spots_standing.append(get_tree().get_root().get_node("Main/Spotlight_unten"))
 	spots_standing.append(get_tree().get_root().get_node("Main/Spotlight_unten2"))
 	strobo = get_tree().get_root().get_node("Main/Strobo")
@@ -44,6 +45,10 @@ func _ready():
 	musicians.append(get_tree().get_root().get_node("Main/Singer"))
 	instruments.append(MusicBand.get_node("Bass"))
 	musicians.append(get_tree().get_root().get_node("Main/Bassist"))
+	
+	time_for_one_spot_to_fail = randi()%max_time_for_one_spot_to_fail
+	time_for_generator_to_fail = randi()%max_time_for_generator_to_fail
+	time_for_one_instrument_to_fail = randi()%max_time_for_one_instrument_to_fail
 	
 	set_process(true)
 
