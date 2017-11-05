@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/Camera.tscn" type="PackedScene" id=2]
@@ -14,6 +14,7 @@
 [ext_resource path="res://scenes/Crowd.tscn" type="PackedScene" id=12]
 [ext_resource path="res://scenes/Guitarist.tscn" type="PackedScene" id=13]
 [ext_resource path="res://scenes/Generator.tscn" type="PackedScene" id=14]
+[ext_resource path="res://scenes/AmpNew.tscn" type="PackedScene" id=15]
 
 [sub_resource type="Animation" id=1]
 
@@ -30,7 +31,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -12.32, -4.74003, 4.84741 )
 
 [node name="Camera" parent="." instance=ExtResource( 2 )]
 
-transform = Transform( 1, 0, 0, 0, 0.859218, 0.511611, 0, -0.511611, 0.859218, 0, 5.15782, 22.7131 )
+transform = Transform( 1, 0, 0, 0, 0.719086, 0.694922, 0, -0.694922, 0.719086, 0, 11.675, 20.3022 )
 
 [node name="Stage" parent="." instance=ExtResource( 3 )]
 
@@ -174,6 +175,11 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.719948, -4.99713, 1.01733 )
 [node name="Generator" parent="." instance=ExtResource( 14 )]
 
 transform = Transform( -0.946085, 0, -0.323917, 0, 1, 0, 0.323917, 0, -0.946085, 12.5757, -6.33812, 8.59857 )
+
+[node name="AmpNew" parent="." instance=ExtResource( 15 )]
+
+transform = Transform( -2.99137, 0, 0.227343, 0, 3, 0, -0.227343, 0, -2.99137, -0.164161, -4.28941, -4.40153 )
+_sections_unfolded = [ "Transform" ]
 
 
 [editable path="Floor"]
