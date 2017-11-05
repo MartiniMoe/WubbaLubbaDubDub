@@ -1,11 +1,11 @@
 extends Node
 
-var spot_an=[true,true,true] #spot informationen welcher spot gerade läuft
+var spot_an = [ true, true, true] #spot informationen welcher spot gerade läuft
 var spots = []
 var spots_standing = []
 var strobo = null
 var instruments = []
-var instruments_an = [true, true, true]
+var instruments_an = [ true, true, true ]
 var musicians = []
 var generator_an=true
 var points=[]
@@ -26,6 +26,8 @@ var time = 0 # the longer the crowd is happy the better, should correlate to the
 var max_time_for_one_spot_to_fail = 180
 var max_time_for_generator_to_fail = 240
 var max_time_for_one_instrument_to_fail = 180
+
+var game_over = false
 
 func _ready():
 	randomize()
@@ -54,7 +56,38 @@ var time_elapsed_for_generator_to_fail = 0.0
 var time_for_one_instrument_to_fail = randi()%max_time_for_one_instrument_to_fail
 var time_elapsed_for_one_instrument_to_fail = 0.0
 
+func all_broken():
+	for spot in spots:
+		spot.fall_down()
+	
+	get_tree().get_root().get_node("Main/Generator").break()
+	
+	strobo.hide()
+
+func new_game():
+	print("new game")
+	
+	for spot in spots:
+		spot.place_back()
+	
+	get_tree().get_root().get_node("Main/Generator").repair()
+	
+	strobo.show()
+	
+	get_tree().get_root().get_node("Main/Overlay/GameOver").hide()
+	
+	game_over = false
+
 func _process(delta):
+	if game_over:
+		return
+	
+	if mood <= 0:
+		game_over = true
+		
+		all_broken()
+		get_tree().get_root().get_node("Main/Overlay/GameOver").show()
+	
 	time+=delta
 	time_elapsed_for_one_spot_to_fail += delta
 	if time_elapsed_for_one_spot_to_fail > time_for_one_spot_to_fail:

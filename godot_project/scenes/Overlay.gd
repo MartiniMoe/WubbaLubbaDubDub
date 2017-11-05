@@ -57,3 +57,7 @@ func _process(delta):
 		$Sprite3.region_rect=Rect2(64,0,64,64)
 	else:
 		$Sprite3.region_rect=Rect2(0,0,64,64)
+
+func _on_Button_pressed():
+	print("pressed new game")
+	global.new_game()
