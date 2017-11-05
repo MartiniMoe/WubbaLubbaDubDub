@@ -41,9 +41,9 @@ func place_back():
 		state = State.FUNCTIONAL
 		
 		set_global_transform(start_transform)
-		$AnimationPlayer.play("light_movement")
-		$TheSpot/Cylinder/SpotLight.light_energy = 4
-		print("my transform: " + str(get_global_transform()))
+		if global.generator_an:
+			$AnimationPlayer.play("light_movement")
+			$TheSpot/Cylinder/SpotLight.light_energy = 4
 		global.spot_an[index] = true
 
 func try_place_back():
