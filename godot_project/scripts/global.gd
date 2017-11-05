@@ -23,7 +23,7 @@ var time = 0 # the longer the crowd is happy the better, should correlate to the
 # Maximum times for things to break in seconds
 var max_time_for_one_spot_to_fail = 180
 var max_time_for_generator_to_fail = 240
-var max_time_for_one_instrument_to_fail = 10
+var max_time_for_one_instrument_to_fail = 180
 
 func _ready():
 	randomize()
