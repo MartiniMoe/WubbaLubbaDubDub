@@ -40,7 +40,7 @@ func _process(delta):
 	speed=global.mood/100.0
 	hue+=delta*speed
 	$Label.text=str(ceil(global.time*10)/10)
-	$Label.rect_position=Vector2(962+randf()*4-2,541+randf()*4-2)
+	#$Label.rect_position=Vector2(962+randf()*4-2,541+randf()*4-2)
 	if(hue>1):
 		hue -= 1
 	var sat=global.mood/100.0
@@ -57,3 +57,7 @@ func _process(delta):
 		$Sprite3.region_rect=Rect2(64,0,64,64)
 	else:
 		$Sprite3.region_rect=Rect2(0,0,64,64)
+
+func _on_Button_pressed():
+	print("pressed new game")
+	global.new_game()
