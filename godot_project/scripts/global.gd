@@ -61,8 +61,9 @@ func switch_everything_off():
 
 func switch_everything_on():
 	for spot in spots:
-		spot.get_node("TheSpot/Cylinder/SpotLight").light_energy = 4
-		spot.get_node("AnimationPlayer").play("light_movement")
+		if spot.state == spot.State.FUNCTIONAL:
+			spot.get_node("TheSpot/Cylinder/SpotLight").light_energy = 4
+			spot.get_node("AnimationPlayer").play("light_movement")
 	for spot_standing in spots_standing:
 		spot_standing.get_node("Cylinder_001.002/Cylinder_001.001/Cylinder_001/SpotLight").light_energy = 4
 		spot_standing.get_node("AnimationPlayer").play("spot_movement")
