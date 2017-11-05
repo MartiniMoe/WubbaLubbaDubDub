@@ -29,8 +29,6 @@ var max_time_for_one_instrument_to_fail = 180
 
 var game_over = false
 
-var game_over = false
-
 func _ready():
 	randomize()
 	
@@ -73,6 +71,8 @@ func new_game():
 		spot.place_back()
 	
 	get_tree().get_root().get_node("Main/Generator").repair()
+	
+	get_tree().get_root().get_node("Main/Crow"d).mood_reset()
 	
 	strobo.show()
 	
