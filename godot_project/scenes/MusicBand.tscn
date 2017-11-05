@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://assets/sounds/drums.ogg" type="AudioStream" id=1]
 [ext_resource path="res://assets/sounds/bass.ogg" type="AudioStream" id=2]
 [ext_resource path="res://assets/sounds/leadguitar.ogg" type="AudioStream" id=3]
 [ext_resource path="res://assets/sounds/rythmguitar.ogg" type="AudioStream" id=4]
+[ext_resource path="res://assets/sounds/singer.ogg" type="AudioStream" id=5]
 
 [node name="MusicBand" type="Node"]
 
@@ -34,6 +35,14 @@ bus = "Master"
 [node name="RythmGuitar" type="AudioStreamPlayer" parent="."]
 
 stream = ExtResource( 4 )
+volume_db = 0.0
+autoplay = true
+mix_target = 0
+bus = "Master"
+
+[node name="Singer" type="AudioStreamPlayer" parent="."]
+
+stream = ExtResource( 5 )
 volume_db = 0.0
 autoplay = true
 mix_target = 0

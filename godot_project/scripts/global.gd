@@ -23,7 +23,7 @@ var time = 0 # the longer the crowd is happy the better, should correlate to the
 # Maximum times for things to break in seconds
 var max_time_for_one_spot_to_fail = 180
 var max_time_for_generator_to_fail = 240
-var max_time_for_one_instrument_to_fail = 11
+var max_time_for_one_instrument_to_fail = 240
 
 func _ready():
 	randomize()
@@ -36,10 +36,10 @@ func _ready():
 	strobo = get_tree().get_root().get_node("Main/Strobo")
 	instruments.append(MusicBand.get_node("Drums"))
 	musicians.append(get_tree().get_root().get_node("Main/Drummer"))
-	#instruments.append(MusicBand.get_node("Bass"))
 	instruments.append(MusicBand.get_node("LeadGuitar"))
 	musicians.append(get_tree().get_root().get_node("Main/Guitarist"))
-	#instruments.append(MusicBand.get_node("RythmGuitar"))
+	instruments.append(MusicBand.get_node("Singer"))
+	musicians.append(get_tree().get_root().get_node("Main/Singer"))
 	
 	set_process(true)
 
