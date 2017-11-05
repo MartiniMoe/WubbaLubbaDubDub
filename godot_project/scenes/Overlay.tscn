@@ -1,7 +1,8 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://scenes/Overlay.gd" type="Script" id=1]
-[ext_resource path="res://assets/textures/lamps.png" type="Texture" id=2]
+[ext_resource path="res://assets/fonts/ArchivoBlack-Regular.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://assets/textures/lamps.png" type="Texture" id=3]
 
 [sub_resource type="StyleBoxFlat" id=1]
 
@@ -468,6 +469,14 @@ WindowDialog/icons/close = null
 WindowDialog/icons/close_highlight = null
 WindowDialog/styles/panel = null
 _sections_unfolded = [ "ProgressBar", "ProgressBar/colors", "ProgressBar/fonts", "ProgressBar/styles", "Resource" ]
+
+[sub_resource type="DynamicFont" id=7]
+
+size = 22
+use_mipmaps = false
+use_filter = true
+font_data = ExtResource( 2 )
+_sections_unfolded = [ "Extra Spacing", "Font", "Settings" ]
 
 [sub_resource type="StyleBoxFlat" id=4]
 
@@ -1560,17 +1569,25 @@ WindowDialog/icons/close_highlight = null
 WindowDialog/styles/panel = null
 _sections_unfolded = [ "ProgressBar", "ProgressBar/colors", "ProgressBar/styles" ]
 
-[sub_resource type="Gradient" id=7]
+[sub_resource type="DynamicFont" id=11]
+
+size = 26
+use_mipmaps = false
+use_filter = true
+font_data = ExtResource( 2 )
+_sections_unfolded = [ "Font", "Settings" ]
+
+[sub_resource type="Gradient" id=8]
 
 offsets = PoolRealArray( 0, 0.0622711, 0.344322, 1 )
 colors = PoolColorArray( 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 )
 
-[sub_resource type="GradientTexture" id=8]
+[sub_resource type="GradientTexture" id=9]
 
-gradient = SubResource( 7 )
+gradient = SubResource( 8 )
 width = 1002
 
-[sub_resource type="ParticlesMaterial" id=9]
+[sub_resource type="ParticlesMaterial" id=10]
 
 render_priority = 0
 trail_divisor = 1
@@ -1599,7 +1616,7 @@ angle = 0.0
 angle_random = 0.0
 scale = 1.0
 scale_random = 0.0
-color_ramp = SubResource( 8 )
+color_ramp = SubResource( 9 )
 hue_variation = 0.0
 hue_variation_random = 0.0
 anim_speed = 0.0
@@ -1608,6 +1625,14 @@ anim_offset = 0.0
 anim_offset_random = 0.0
 anim_loop = false
 _sections_unfolded = [ "Color", "Emission Shape", "Flags", "Gravity", "Initial Velocity", "Spread" ]
+
+[sub_resource type="DynamicFont" id=12]
+
+size = 32
+use_mipmaps = false
+use_filter = false
+font_data = ExtResource( 2 )
+_sections_unfolded = [ "Font", "Settings" ]
 
 [node name="Overlay" type="Control"]
 
@@ -1627,6 +1652,7 @@ _sections_unfolded = [ "Margin", "Size Flags" ]
 
 [node name="Healthbar" type="ProgressBar" parent="."]
 
+editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -1634,7 +1660,7 @@ anchor_bottom = 0.0
 margin_left = 20.0
 margin_top = 40.0
 margin_right = 320.0
-margin_bottom = 60.0
+margin_bottom = 72.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 0
@@ -1651,31 +1677,36 @@ rounded = false
 percent_visible = false
 _sections_unfolded = [ "Anchor", "Focus", "Grow Direction", "Hint", "Margin", "Mouse", "Percent", "Rect", "Size Flags", "Theme" ]
 
-[node name="Label" type="Label" parent="Healthbar"]
+[node name="Label2" type="Label" parent="Healthbar"]
 
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = 2.0
-margin_right = 100.0
-margin_bottom = 16.0
+margin_left = 9.0
+margin_top = -1.0
+margin_right = 156.0
+margin_bottom = 33.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 2
 size_flags_horizontal = 1
 size_flags_vertical = 4
-custom_colors/font_color = Color( 1, 0, 0, 1 )
+custom_fonts/font = SubResource( 7 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 custom_constants/shadow_offset_x = 2
 custom_constants/shadow_offset_y = 2
 text = "Gesundheit"
+valign = 1
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
-_sections_unfolded = [ "Rect", "custom_colors", "custom_constants" ]
+_sections_unfolded = [ "Grow Direction", "Margin", "Rect", "custom_colors", "custom_constants", "custom_fonts" ]
 
 [node name="Stimmung" type="ProgressBar" parent="."]
 
+editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -1683,7 +1714,7 @@ anchor_bottom = 0.0
 margin_left = 700.0
 margin_top = 40.0
 margin_right = 1000.0
-margin_bottom = 60.0
+margin_bottom = 72.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 0
@@ -1706,28 +1737,31 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = 2.0
-margin_right = 100.0
-margin_bottom = 16.0
+margin_left = 9.0
+margin_top = -1.0
+margin_right = 156.0
+margin_bottom = 33.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 2
 size_flags_horizontal = 1
 size_flags_vertical = 4
-custom_colors/font_color = Color( 0.129149, 0.251449, 0.849231, 1 )
+custom_fonts/font = SubResource( 7 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 custom_constants/shadow_offset_x = 2
 custom_constants/shadow_offset_y = 2
 text = "Stimmung"
+valign = 1
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
-_sections_unfolded = [ "Rect", "custom_colors", "custom_constants" ]
+_sections_unfolded = [ "Grow Direction", "Margin", "Rect", "custom_colors", "custom_constants", "custom_fonts" ]
 
 [node name="Sprite" type="Sprite" parent="."]
 
 position = Vector2( 62, 538 )
-texture = ExtResource( 2 )
+texture = ExtResource( 3 )
 region_enabled = true
 region_rect = Rect2( 0, 0, 64, 64 )
 _sections_unfolded = [ "Material", "Offset", "Region", "Transform", "Visibility" ]
@@ -1735,7 +1769,7 @@ _sections_unfolded = [ "Material", "Offset", "Region", "Transform", "Visibility"
 [node name="Sprite2" type="Sprite" parent="."]
 
 position = Vector2( 100, 538 )
-texture = ExtResource( 2 )
+texture = ExtResource( 3 )
 region_enabled = true
 region_rect = Rect2( 0, 0, 64, 64 )
 _sections_unfolded = [ "Offset", "Region", "Transform" ]
@@ -1743,13 +1777,14 @@ _sections_unfolded = [ "Offset", "Region", "Transform" ]
 [node name="Sprite3" type="Sprite" parent="."]
 
 position = Vector2( 138, 538 )
-texture = ExtResource( 2 )
+texture = ExtResource( 3 )
 region_enabled = true
 region_rect = Rect2( 0, 0, 64, 64 )
 _sections_unfolded = [ "Offset", "Region", "Transform", "Z" ]
 
 [node name="Label" type="Label" parent="."]
 
+editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -1763,6 +1798,7 @@ rect_clip_content = false
 mouse_filter = 2
 size_flags_horizontal = 1
 size_flags_vertical = 4
+custom_fonts/font = SubResource( 11 )
 text = "0"
 percent_visible = 1.0
 lines_skipped = 0
@@ -1786,11 +1822,40 @@ fract_delta = true
 visibility_rect = Rect2( -100, -100, 200, 200 )
 local_coords = true
 draw_order = 0
-process_material = SubResource( 9 )
+process_material = SubResource( 10 )
 texture = null
 normal_map = null
 h_frames = 1
 v_frames = 1
 _sections_unfolded = [ "Drawing", "Process Material", "Textures", "Time" ]
+
+[node name="GameOver" type="Node2D" parent="."]
+
+visible = false
+_sections_unfolded = [ "Transform" ]
+
+[node name="GameOverLabel" type="Label" parent="GameOver"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 182.0
+margin_top = 232.0
+margin_right = 840.0
+margin_bottom = 386.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = SubResource( 12 )
+text = "GAMÉ OVÈR"
+align = 1
+valign = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "custom_fonts" ]
 
 
