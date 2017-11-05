@@ -5,6 +5,7 @@ extends StaticBody
 # var b = "textvar"
 export var laune=100.0
 var fan=Vector3(0,0,0)
+var timer=2
 
 func _ready():
 	randomize()
@@ -12,6 +13,7 @@ func _ready():
 	
 	set_physics_process(true)
 	$"Scene Root/AnimationTreePlayer".set_active(true)
+
 
 func _physics_process(delta):
 	if(!global.spot_an[0]):
@@ -22,5 +24,10 @@ func _physics_process(delta):
 		laune-=delta*fan.z
 	if(laune<0):
 		laune=0
+	if timer>=0:
+		timer-=1
+	if timer==0:
+		print("test")
+		$"Scene Root/AnimationTreePlayer".advance(randf())
 	$"Scene Root/AnimationTreePlayer".blend2_node_set_amount("blend2",min(laune-30.0/40.0,1))
 	
