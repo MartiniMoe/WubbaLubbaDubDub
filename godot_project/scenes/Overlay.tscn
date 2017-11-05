@@ -1244,7 +1244,6 @@ _sections_unfolded = [ "Grow Direction", "Margin", "Rect", "custom_colors", "cus
 
 [node name="Stimmung" type="ProgressBar" parent="."]
 
-editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -1417,5 +1416,7 @@ group = null
 text = "Neues Spiel"
 flat = false
 _sections_unfolded = [ "custom_fonts" ]
+
+[connection signal="pressed" from="GameOver/Button" to="." method="_on_Button_pressed"]
 
 
