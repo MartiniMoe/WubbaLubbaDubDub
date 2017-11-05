@@ -15,6 +15,7 @@ func _ready():
 			fans.append(new_fan)
 			add_child(new_fan)
 			new_fan.translate(Vector3((randf()*1.0-0.5)+i*2.4-12.0,0,(randf()*1.0-0.5)+j*2.4-6.0))
+			new_fan.fannumber=i*5+j
 	set_physics_process(true)
 func mood_reset():
 	for fan in fans:

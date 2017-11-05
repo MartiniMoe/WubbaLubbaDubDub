@@ -8,6 +8,7 @@ var fan=Vector3(0,0,0)
 var timer=2
 var tomato = preload("res://scenes/tomato.tscn")
 var seen=false
+var fannumber=-1
 
 func _ready():
 	randomize()
@@ -52,5 +53,5 @@ func _on_Timer_timeout():
 	var vectorto=global.playerpos-$Position3D.global_transform.origin
 	vectorto+=Vector3(0,vectorto.length()/3,0)
 	new_tomato.apply_impulse($Position3D.global_transform.origin,vectorto)
-	laune+=40
+	new_tomato.crowdperson=fannumber
 	pass # replace with function body

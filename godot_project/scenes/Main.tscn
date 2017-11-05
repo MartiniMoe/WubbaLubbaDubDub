@@ -116,6 +116,7 @@ _sections_unfolded = [ "Transform" ]
 
 [node name="Floor" parent="." instance=ExtResource( 9 )]
 
+editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -6.29647, 5.36499 )
 _sections_unfolded = [ "Transform" ]
 
@@ -126,14 +127,8 @@ light_color = Color( 1, 0.351562, 0, 1 )
 
 [node name="Spotlight_oben3" parent="." instance=ExtResource( 10 )]
 
-transform = Transform( 0.476999, 0, 0.878904, 0, 1, 0, -0.878904, 0, 0.476999, -3.142, 1.59354, 4.68052 )
+transform = Transform( 0.476999, 0, 0.878904, 0, 1, 0, -0.878904, 0, 0.476999, 0.280115, 1.59354, 4.68052 )
 light_color = Color( 0.171875, 1, 0, 1 )
-index = 2
-
-[node name="Spotlight_oben4" parent="." instance=ExtResource( 10 )]
-
-transform = Transform( -0.636233, 0, 0.771497, 0, 1, 0, -0.771497, 0, -0.636233, 5.92733, 1.59354, 4.68052 )
-light_color = Color( 0, 0.179688, 1, 1 )
 index = 2
 
 [node name="Spotlight_oben2" parent="." instance=ExtResource( 10 )]
@@ -208,12 +203,7 @@ _sections_unfolded = [ "Transform" ]
 
 [node name="Bracket3" parent="." instance=ExtResource( 17 )]
 
-transform = Transform( 2.8, 0, 0, 0, 2.8, 0, 0, 0, 2.8, -3.05429, 2.05509, 4.50567 )
-_sections_unfolded = [ "Transform" ]
-
-[node name="Bracket4" parent="." instance=ExtResource( 17 )]
-
-transform = Transform( 2.8, 0, 0, 0, 2.8, 0, 0, 0, 2.8, 6.01504, 2.05509, 4.50567 )
+transform = Transform( 2.8, 0, 0, 0, 2.8, 0, 0, 0, 2.8, 0.367826, 2.05509, 4.50567 )
 _sections_unfolded = [ "Transform" ]
 
 

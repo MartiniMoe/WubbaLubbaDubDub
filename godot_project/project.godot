@@ -18,7 +18,6 @@ config/icon="res://icon.png"
 
 global="*res://scripts/global.gd"
 MusicBand="*res://scenes/MusicBand.tscn"
-CrowdSounds="*res://scenes/CrowdSounds.tscn"
 
 [display]
 

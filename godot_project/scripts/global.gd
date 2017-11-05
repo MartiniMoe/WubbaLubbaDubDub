@@ -11,6 +11,7 @@ var generator_an=true
 var points=[]
 var playerpos=Vector3(0,0,0)
 var playervisible
+var crowd
 
 var mood = 100 # as a percentage value? people get mad, if stuff is broken
                # for a longer period or something?
@@ -35,7 +36,7 @@ func _ready():
 	spots.append(get_tree().get_root().get_node("Main/Spotlight_oben"))
 	spots.append(get_tree().get_root().get_node("Main/Spotlight_oben2"))
 	spots.append(get_tree().get_root().get_node("Main/Spotlight_oben3"))
-	spots.append(get_tree().get_root().get_node("Main/Spotlight_oben4"))
+	#spots.append(get_tree().get_root().get_node("Main/Spotlight_oben4"))
 	spots_standing.append(get_tree().get_root().get_node("Main/Spotlight_unten"))
 	spots_standing.append(get_tree().get_root().get_node("Main/Spotlight_unten2"))
 	strobo = get_tree().get_root().get_node("Main/Strobo")
@@ -76,8 +77,8 @@ func new_game():
 		spot.place_back()
 	
 	get_tree().get_root().get_node("Main/Generator").repair()
-	
-	get_tree().get_root().get_node("Main/Crowd").mood_reset()
+	crowd=get_tree().get_root().get_node("Main/Crowd")
+	crowd.mood_reset()
 	health = 100
 	
 	strobo.show()
@@ -90,7 +91,7 @@ func _process(delta):
 	if game_over:
 		return
 	
-	if mood <= 0:
+	if mood <= 0 or health <= 0:
 		game_over = true
 		
 		all_broken()
