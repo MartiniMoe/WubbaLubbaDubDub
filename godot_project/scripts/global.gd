@@ -42,6 +42,8 @@ func _ready():
 	musicians.append(get_tree().get_root().get_node("Main/Guitarist"))
 	instruments.append(MusicBand.get_node("Singer"))
 	musicians.append(get_tree().get_root().get_node("Main/Singer"))
+	instruments.append(MusicBand.get_node("Bass"))
+	musicians.append(get_tree().get_root().get_node("Main/Bassist"))
 	
 	set_process(true)
 

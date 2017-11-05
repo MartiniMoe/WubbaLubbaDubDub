@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/Camera.tscn" type="PackedScene" id=2]
@@ -15,6 +15,8 @@
 [ext_resource path="res://scenes/Guitarist.tscn" type="PackedScene" id=13]
 [ext_resource path="res://scenes/Generator.tscn" type="PackedScene" id=14]
 [ext_resource path="res://scenes/Overlay.tscn" type="PackedScene" id=15]
+[ext_resource path="res://scenes/Bassist.tscn" type="PackedScene" id=16]
+[ext_resource path="res://scenes/Bracket.tscn" type="PackedScene" id=17]
 
 [sub_resource type="Animation" id=1]
 
@@ -136,7 +138,7 @@ index = 1
 
 [node name="Singer" parent="." instance=ExtResource( 11 )]
 
-transform = Transform( -0.627153, 0, 0.778896, 0, 1, 0, -0.778896, 0, -0.627153, 6.34462, -5.03078, 1.3269 )
+transform = Transform( -0.627153, 0, 0.778896, 0, 1, 0, -0.778896, 0, -0.627153, 7.22079, -5.03078, 2.08657 )
 
 [node name="DirectionalLight" type="DirectionalLight" parent="."]
 
@@ -171,7 +173,7 @@ _sections_unfolded = [ "Transform" ]
 
 [node name="Guitarist" parent="." instance=ExtResource( 13 )]
 
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.719948, -4.99713, 1.01733 )
+transform = Transform( 0.98118, 0, 0.193098, 0, 1, 0, -0.193098, 0, 0.98118, -1.04376, -4.99713, 1.01733 )
 
 [node name="Generator" parent="." instance=ExtResource( 14 )]
 
@@ -182,6 +184,25 @@ transform = Transform( -0.946085, 0, -0.323917, 0, 1, 0, 0.323917, 0, -0.946085,
 [node name="Amp9" parent="." instance=ExtResource( 7 )]
 
 transform = Transform( 3.47652, 0, -0.404767, 0, 3.5, 0, 0.404767, 0, 3.47652, 1.91927, -4.19911, -4.68037 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Bassist" parent="." instance=ExtResource( 16 )]
+
+transform = Transform( 0.946714, 0, -0.322077, 0, 1, 0, 0.322077, 0, 0.946714, 3.18257, -4.95151, 0 )
+
+[node name="Bracket" parent="." instance=ExtResource( 17 )]
+
+transform = Transform( 2.8, 0, 0, 0, 2.8, 0, 0, 0, 2.8, -1.11289, 2.05509, -4.50291 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Bracket2" parent="." instance=ExtResource( 17 )]
+
+transform = Transform( 2.8, 0, 0, 0, 2.8, 0, 0, 0, 2.8, 4.21604, 2.05509, -4.50291 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Bracket3" parent="." instance=ExtResource( 17 )]
+
+transform = Transform( 2.8, 0, 0, 0, 2.8, 0, 0, 0, 2.8, 0.367826, 2.05509, 4.50567 )
 _sections_unfolded = [ "Transform" ]
 
 

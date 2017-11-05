@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://assets/sounds/boo.ogg" type="AudioStream" id=1]
+[ext_resource path="res://assets/sounds/cheering.ogg" type="AudioStream" id=2]
+
+[node name="CrowdSounds" type="Node"]
+
+[node name="CrowdBoo" type="AudioStreamPlayer" parent="."]
+
+stream = ExtResource( 1 )
+volume_db = -80.0
+autoplay = true
+mix_target = 0
+bus = "Master"
+
+[node name="CrowdCheer" type="AudioStreamPlayer" parent="."]
+
+stream = ExtResource( 2 )
+volume_db = -80.0
+autoplay = true
+mix_target = 0
+bus = "Master"
+
+
