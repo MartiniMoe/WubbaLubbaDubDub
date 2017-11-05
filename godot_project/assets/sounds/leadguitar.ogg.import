@@ -1,0 +1,10 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/leadguitar.ogg-098324e53d699dfbfe9f53060adbd2e2.oggstr"
+
+[params]
+
+loop=true
+loop_offset=0
