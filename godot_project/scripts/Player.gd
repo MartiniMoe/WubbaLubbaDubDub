@@ -27,6 +27,11 @@ func _physics_process(delta):
 				var placed_back = node.try_place_back()
 				if placed_back:
 					wearing_node = null
+		
+		for node in get_tree().get_nodes_in_group("repairable"):
+			if (node.global_transform.origin - global_transform.origin).length() < SELECTION_DIST && \
+			   node.state == node.State.BROKEN:
+				node.try_repair()
 	
 	# MOVEMENT IN XZ
 	if Input.is_action_pressed("ui_up"):

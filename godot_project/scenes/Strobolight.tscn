@@ -20,7 +20,7 @@ tracks/0/keys = {
 "values": [ 0.0, 10.0 ]
 }
 
-[node name="OmniLight" type="OmniLight"]
+[node name="Strobo" type="OmniLight"]
 
 layers = 1
 light_color = Color( 0.855469, 0.861115, 1, 1 )
