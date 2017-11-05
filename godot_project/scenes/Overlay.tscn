@@ -3,7 +3,7 @@
 [ext_resource path="res://scenes/Overlay.gd" type="Script" id=1]
 [ext_resource path="res://assets/textures/lamps.png" type="Texture" id=2]
 
-[sub_resource type="StyleBoxFlat" id=4]
+[sub_resource type="StyleBoxFlat" id=1]
 
 content_margin_left = -1.0
 content_margin_right = -1.0
@@ -32,7 +32,7 @@ anti_aliasing = true
 anti_aliasing_size = 1
 _sections_unfolded = [ "Border", "Border Width", "Shadow" ]
 
-[sub_resource type="StyleBoxFlat" id=5]
+[sub_resource type="StyleBoxFlat" id=2]
 
 content_margin_left = -1.0
 content_margin_right = -1.0
@@ -61,7 +61,7 @@ anti_aliasing = true
 anti_aliasing_size = 1
 _sections_unfolded = [ "Border", "Corner Radius", "Expand Margin", "Shadow" ]
 
-[sub_resource type="Theme" id=6]
+[sub_resource type="Theme" id=3]
 
 Button/colors/font_color = Color( 0, 0, 0, 1 )
 Button/colors/font_color_disabled = Color( 0, 0, 0, 1 )
@@ -285,8 +285,8 @@ PopupPanel/styles/panel = null
 ProgressBar/colors/font_color = Color( 0, 0, 0, 1 )
 ProgressBar/colors/font_color_shadow = Color( 0, 0, 0, 1 )
 ProgressBar/fonts/font = null
-ProgressBar/styles/bg = SubResource( 4 )
-ProgressBar/styles/fg = SubResource( 5 )
+ProgressBar/styles/bg = SubResource( 1 )
+ProgressBar/styles/fg = SubResource( 2 )
 ReferenceRect/styles/border = null
 RichTextLabel/colors/default_color = Color( 0, 0, 0, 1 )
 RichTextLabel/colors/font_color_selected = Color( 0, 0, 0, 1 )
@@ -469,7 +469,7 @@ WindowDialog/icons/close_highlight = null
 WindowDialog/styles/panel = null
 _sections_unfolded = [ "ProgressBar", "ProgressBar/colors", "ProgressBar/fonts", "ProgressBar/styles", "Resource" ]
 
-[sub_resource type="StyleBoxFlat" id=1]
+[sub_resource type="StyleBoxFlat" id=4]
 
 content_margin_left = -1.0
 content_margin_right = -1.0
@@ -498,7 +498,7 @@ anti_aliasing = true
 anti_aliasing_size = 1
 _sections_unfolded = [ "Border", "Corner Radius", "Expand Margin", "Shadow" ]
 
-[sub_resource type="StyleBoxFlat" id=2]
+[sub_resource type="StyleBoxFlat" id=5]
 
 content_margin_left = -1.0
 content_margin_right = -1.0
@@ -527,7 +527,7 @@ anti_aliasing = true
 anti_aliasing_size = 1
 _sections_unfolded = [ "Anti Aliasing", "Border", "Border Width", "Corner Radius", "Expand Margin", "Shadow" ]
 
-[sub_resource type="Theme" id=3]
+[sub_resource type="Theme" id=6]
 
 BoxContainer/constants/separation = 0
 Button/colors/font_color = Color( 0, 0, 0, 1 )
@@ -619,35 +619,7 @@ Editor/colors/prop_category = Color( 0, 0, 0, 1 )
 Editor/colors/prop_section = Color( 0, 0, 0, 1 )
 Editor/colors/prop_subsection = Color( 0, 0, 0, 1 )
 Editor/colors/success_color = Color( 0, 0, 0, 1 )
-Editor/colors/text_editor/theme/background_color = Color( 0, 0, 0, 1 )
-Editor/colors/text_editor/theme/basetype_color = Color( 0, 0, 0, 1 )
-Editor/colors/text_editor/theme/brace_mismatch_color = Color( 0, 0, 0, 1 )
-Editor/colors/text_editor/theme/breakpoint_color = Color( 0, 0, 0, 1 )
-Editor/colors/text_editor/theme/caret_background_color = Color( 0, 0, 0, 1 )
-Editor/colors/text_editor/theme/caret_color = Color( 0, 0, 0, 1 )
-Editor/colors/text_editor/theme/comment_color = Color( 0, 0, 0, 1 )
-Editor/colors/text_editor/theme/completion_background_color = Color( 0, 0, 0, 1 )
-Editor/colors/text_editor/theme/completion_existing_color = Color( 0, 0, 0, 1 )
-Editor/colors/text_editor/theme/completion_font_color = Color( 0, 0, 0, 1 )
-Editor/colors/text_editor/theme/completion_scroll_color = Color( 0, 0, 0, 1 )
-Editor/colors/text_editor/theme/completion_selected_color = Color( 0, 0, 0, 1 )
-Editor/colors/text_editor/theme/current_line_color = Color( 0, 0, 0, 1 )
-Editor/colors/text_editor/theme/function_color = Color( 0, 0, 0, 1 )
-Editor/colors/text_editor/theme/keyword_color = Color( 0, 0, 0, 1 )
-Editor/colors/text_editor/theme/line_length_guideline_color = Color( 0, 0, 0, 1 )
-Editor/colors/text_editor/theme/line_number_color = Color( 0, 0, 0, 1 )
-Editor/colors/text_editor/theme/mark_color = Color( 0, 0, 0, 1 )
-Editor/colors/text_editor/theme/member_variable_color = Color( 0, 0, 0, 1 )
-Editor/colors/text_editor/theme/number_color = Color( 0, 0, 0, 1 )
-Editor/colors/text_editor/theme/search_result_border_color = Color( 0, 0, 0, 1 )
-Editor/colors/text_editor/theme/search_result_color = Color( 0, 0, 0, 1 )
-Editor/colors/text_editor/theme/selection_color = Color( 0, 0, 0, 1 )
-Editor/colors/text_editor/theme/string_color = Color( 0, 0, 0, 1 )
-Editor/colors/text_editor/theme/symbol_color = Color( 0, 0, 0, 1 )
-Editor/colors/text_editor/theme/text_color = Color( 0, 0, 0, 1 )
-Editor/colors/text_editor/theme/text_selected_color = Color( 0, 0, 0, 1 )
-Editor/colors/text_editor/theme/type_color = Color( 0, 0, 0, 1 )
-Editor/colors/text_editor/theme/word_highlighted_color = Color( 0, 0, 0, 1 )
+Editor/colors/text_editor = Color( 0, 0, 0, 1 )
 Editor/colors/warning_color = Color( 0, 0, 0, 1 )
 Editor/constants/dark_theme = 0
 Editor/constants/scale = 0
@@ -1401,8 +1373,8 @@ PopupPanel/styles/panel = null
 ProgressBar/colors/font_color = Color( 0, 0, 0, 1 )
 ProgressBar/colors/font_color_shadow = Color( 0, 0, 0, 1 )
 ProgressBar/fonts/font = null
-ProgressBar/styles/bg = SubResource( 1 )
-ProgressBar/styles/fg = SubResource( 2 )
+ProgressBar/styles/bg = SubResource( 4 )
+ProgressBar/styles/fg = SubResource( 5 )
 ProjectSettingsEditor/styles/panel = null
 ReferenceRect/styles/border = null
 RichTextLabel/colors/default_color = Color( 0, 0, 0, 1 )
@@ -1588,17 +1560,17 @@ WindowDialog/icons/close_highlight = null
 WindowDialog/styles/panel = null
 _sections_unfolded = [ "ProgressBar", "ProgressBar/colors", "ProgressBar/styles" ]
 
-[sub_resource type="Gradient" id=8]
+[sub_resource type="Gradient" id=7]
 
 offsets = PoolRealArray( 0, 0.0622711, 0.344322, 1 )
 colors = PoolColorArray( 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 )
 
-[sub_resource type="GradientTexture" id=9]
+[sub_resource type="GradientTexture" id=8]
 
-gradient = SubResource( 8 )
+gradient = SubResource( 7 )
 width = 1002
 
-[sub_resource type="ParticlesMaterial" id=7]
+[sub_resource type="ParticlesMaterial" id=9]
 
 render_priority = 0
 trail_divisor = 1
@@ -1627,7 +1599,7 @@ angle = 0.0
 angle_random = 0.0
 scale = 1.0
 scale_random = 0.0
-color_ramp = SubResource( 9 )
+color_ramp = SubResource( 8 )
 hue_variation = 0.0
 hue_variation_random = 0.0
 anim_speed = 0.0
@@ -1668,7 +1640,7 @@ rect_clip_content = false
 mouse_filter = 0
 size_flags_horizontal = 1
 size_flags_vertical = 0
-theme = SubResource( 6 )
+theme = SubResource( 3 )
 min_value = 0.0
 max_value = 100.0
 step = 1.0
@@ -1717,7 +1689,7 @@ rect_clip_content = false
 mouse_filter = 0
 size_flags_horizontal = 1
 size_flags_vertical = 0
-theme = SubResource( 3 )
+theme = SubResource( 6 )
 min_value = 0.0
 max_value = 100.0
 step = 1.0
@@ -1776,30 +1748,6 @@ region_enabled = true
 region_rect = Rect2( 0, 0, 64, 64 )
 _sections_unfolded = [ "Offset", "Region", "Transform", "Z" ]
 
-[node name="Particles2D" type="Particles2D" parent="."]
-
-position = Vector2( 965.651, 547.382 )
-scale = Vector2( 1, 1.47908 )
-emitting = true
-amount = 73
-lifetime = 6.73
-one_shot = false
-preprocess = 0.0
-speed_scale = 1.0
-explosiveness = 0.0
-randomness = 0.5
-fixed_fps = 0
-fract_delta = true
-visibility_rect = Rect2( -100, -100, 200, 200 )
-local_coords = true
-draw_order = 0
-process_material = SubResource( 7 )
-texture = null
-normal_map = null
-h_frames = 1
-v_frames = 1
-_sections_unfolded = [ "Drawing", "Process Material", "Textures", "Time" ]
-
 [node name="Label" type="Label" parent="."]
 
 anchor_left = 0.0
@@ -1820,5 +1768,29 @@ percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "Anchor", "Grow Direction", "Margin", "Rect", "Size Flags", "custom_fonts" ]
+
+[node name="Particles2D" type="Particles2D" parent="Label"]
+
+position = Vector2( 3.651, 6.38202 )
+scale = Vector2( 1, 1.47908 )
+emitting = true
+amount = 73
+lifetime = 6.73
+one_shot = false
+preprocess = 0.0
+speed_scale = 1.0
+explosiveness = 0.0
+randomness = 0.5
+fixed_fps = 0
+fract_delta = true
+visibility_rect = Rect2( -100, -100, 200, 200 )
+local_coords = true
+draw_order = 0
+process_material = SubResource( 9 )
+texture = null
+normal_map = null
+h_frames = 1
+v_frames = 1
+_sections_unfolded = [ "Drawing", "Process Material", "Textures", "Time" ]
 
 

@@ -15,8 +15,13 @@ func _ready():
 			fans.append(new_fan)
 			add_child(new_fan)
 			new_fan.translate(Vector3((randf()*1.0-0.5)+i*2.4-12.0,0,(randf()*1.0-0.5)+j*2.4-6.0))
-	pass
+	set_physics_process(true)
 
+func _physics_process(delta):
+	var laune=0
+	for fan in fans:
+		laune+=fan.laune/fans.size()
+	global.mood=laune
 #func _process(delta):
 #	# Called every frame. Delta is time since last frame.
 #	# Update game logic here.
