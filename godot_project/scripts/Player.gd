@@ -1,7 +1,7 @@
 extends KinematicBody
 
 const SPEED = 4
-const SELECTION_DIST = 3
+const SELECTION_DIST = 4
 
 enum State {IDLE, WALKING, CLIMBING, FALLING}
 

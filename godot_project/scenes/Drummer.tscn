@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=2]
+[gd_scene load_steps=31 format=2]
 
 [ext_resource path="res://assets/models/Humanbody.material" type="Material" id=1]
 [ext_resource path="res://assets/models/playerHeadMaterial.material" type="Material" id=2]
@@ -13,6 +13,8 @@
 [ext_resource path="res://assets/models/speakerswood2.material" type="Material" id=11]
 [ext_resource path="res://assets/models/solidblack.material" type="Material" id=12]
 [ext_resource path="res://assets/models/Sticktips.material" type="Material" id=13]
+[ext_resource path="res://scenes/BrokenSphere.tscn" type="PackedScene" id=14]
+[ext_resource path="res://scenes/Hilight_sphere.tscn" type="PackedScene" id=15]
 
 [sub_resource type="GDScript" id=15]
 
@@ -20,17 +22,34 @@ script/source = "extends StaticBody
 
 enum State {FUNCTIONAL, BROKEN}
 var state = State.FUNCTIONAL
+var selection_dist = 4
+
+# DRUMMER
 
 func _ready():
-	pass
+	set_process(true)
+
+func _process(delta):
+	if state == State.BROKEN && (get_node(\"/root/Main/Player\").global_transform.origin - global_transform.origin).length() < selection_dist:
+		$Hilight_sphere.show()
+	else:
+		$Hilight_sphere.hide()
+
+func try_repair():
+	set_broken(false)
 
 func set_broken(var broken):
 	if broken:
+		print(\"Drummer broken\")
 		$\"AnimationPlayer\".stop_all()
 		state = State.BROKEN
+		$BrokenSphere.show()
 	else:
-		$\"StaticBody/Scene Root/AnimationPlayer\".play(\"default\")
-		state = State.FUNCTIONAL"
+		print(\"Drummer repaired\")
+		$\"AnimationPlayer\".play(\"ArmatureAction\")
+		state = State.FUNCTIONAL
+		$BrokenSphere.hide()
+		MusicBand.get_node(\"Drums\").set_volume_db(0)"
 
 [sub_resource type="ArrayMesh" id=1]
 
@@ -750,7 +769,9 @@ func _process(delta):
 radius = 1.0
 height = 1.0
 
-[node name="Drummer" type="StaticBody"]
+[node name="Drummer" type="StaticBody" groups=[
+"repairable",
+]]
 
 input_ray_pickable = true
 input_capture_on_drag = false
@@ -1129,5 +1150,16 @@ script = SubResource( 13 )
 transform = Transform( 0.357981, 0, 0.933729, 0, 1, 0, -0.933729, 0, 0.357981, -0.184742, 0.699707, 0.827036 )
 shape = SubResource( 14 )
 disabled = false
+
+[node name="BrokenSphere" parent="." instance=ExtResource( 14 )]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.52155, 0 )
+visible = false
+
+[node name="Hilight_sphere" parent="." instance=ExtResource( 15 )]
+
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0.819689, 0 )
+visible = false
+_sections_unfolded = [ "Transform" ]
 
 

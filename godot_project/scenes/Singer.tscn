@@ -1,9 +1,11 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://assets/models/Material.material" type="Material" id=1]
 [ext_resource path="res://assets/models/Material_001.material" type="Material" id=2]
 [ext_resource path="res://assets/textures/human_body.png" type="Texture" id=3]
 [ext_resource path="res://assets/models/playerHeadMaterial.material" type="Material" id=4]
+[ext_resource path="res://scenes/Hilight_sphere.tscn" type="PackedScene" id=5]
+[ext_resource path="res://scenes/BrokenSphere.tscn" type="PackedScene" id=6]
 
 [sub_resource type="Curve3D" id=1]
 
@@ -21,6 +23,9 @@ var forward=true
 
 enum State {FUNCTIONAL, BROKEN}
 var state = State.FUNCTIONAL
+var selection_dist = 3
+
+# SINGER
 
 func _ready():
 	# Called every time the node is added to the scene.
@@ -46,18 +51,27 @@ func _physics_process(delta):
 		else:
 			$\"PathFollow/StaticBody/Scene Root/AnimationPlayer\".play_backwards(\"walk forward\",3)
 			forward=true
-#func _process(delta):
-#	# Called every frame. Delta is time since last frame.
-#	# Update game logic here.
-#	pass
+	
+	if state == State.BROKEN && (get_node(\"/root/Main/Player\").global_transform.origin - global_transform.origin).length() < selection_dist:
+		$\"PathFollow/StaticBody/Scene Root/Armature/Hilight_sphere\".show()
+	else:
+		$\"PathFollow/StaticBody/Scene Root/Armature/Hilight_sphere\".hide()
+
+func try_repair():
+	set_broken(false)
 
 func set_broken(var broken):
 	if broken:
+		print(\"Singer broken\")
 		$\"PathFollow/StaticBody/Scene Root/AnimationTreePlayer\".set_active(false)
 		state = State.BROKEN
+		$\"PathFollow/StaticBody/Scene Root/Armature/BrokenSphere\".show()
 	else:
+		print(\"Singer repaired\")
 		$\"PathFollow/StaticBody/Scene Root/AnimationTreePlayer\".set_active(true)
-		state = State.FUNCTIONAL"
+		MusicBand.get_node(\"Singer\").set_volume_db(0)
+		state = State.FUNCTIONAL
+		$\"PathFollow/StaticBody/Scene Root/Armature/BrokenSphere\".hide()"
 
 [sub_resource type="CapsuleShape" id=3]
 
@@ -322,7 +336,9 @@ tracks/14/loop_wrap = true
 tracks/14/imported = true
 tracks/14/keys = PoolRealArray( 0, 1, -2.97787e-08, 3.52096e-07, -2.98023e-08, -0.00327436, -0.0025168, -0.00041036, 0.999991, 1, 1, 1, 0.0666667, 1, -2.04887e-08, 3.18278e-07, 2.98023e-08, -0.0031748, -0.00480797, -0.000402597, 0.999983, 1, 1, 1, 0.266667, 1, 1.0338e-08, 1.60748e-07, 5.96046e-08, -0.00121057, -0.0316991, -0.000311358, 0.999497, 1, 1, 1, 0.4, 1, -9.77851e-09, 2.34321e-07, 0, 0.00110337, -0.0447585, -0.000266396, 0.998997, 1, 1, 1, 0.533333, 1, -3.88358e-08, 2.63703e-07, -2.98023e-08, 0.00388291, -0.0546247, -0.000231696, 0.998499, 1, 1, 1, 0.666667, 1, -5.96974e-08, 1.82541e-07, 0, 0.00637295, -0.062047, -0.000205542, 0.998053, 1, 1, 1, 0.8, 1, -3.43654e-08, 2.58162e-07, 0, 0.00789304, -0.0675966, -0.000186335, 0.997681, 1, 1, 1, 0.866667, 1, -1.05236e-08, 2.24123e-07, 2.98023e-08, 0.00827469, -0.0700978, -0.000177852, 0.997506, 1, 1, 1, 1, 1, 1.48084e-08, 1.78117e-07, -8.9407e-08, 0.00931497, -0.0775214, -0.000151391, 0.996947, 1, 1, 1, 1.06667, 1, -4.33062e-08, 2.63051e-07, 0, 0.00932164, -0.0780276, -0.000148115, 0.996908, 1, 1, 1, 1.13333, 1, -4.33061e-08, 1.91324e-07, -5.96046e-08, 0.00837123, -0.0724643, -0.00016475, 0.997336, 1, 1, 1, 1.2, 1, -7.54321e-09, 2.87376e-07, -5.96046e-08, 0.00550493, -0.0548665, -0.000221581, 0.998478, 1, 1, 1, 1.26667, 1, -3.43655e-08, 2.06242e-07, -2.98023e-08, -0.00122575, -0.0132677, -0.000358983, 0.999911, 1, 1, 1, 1.33333, 1, -4.1071e-08, 2.92201e-07, -8.9407e-08, -0.00290089, -0.00294083, -0.000385608, 0.999991, 1, 1, 1, 1.4, 1, -1.57394e-08, 3.01141e-07, 2.98023e-08, -0.00293422, -0.0027472, -0.000381423, 0.999992, 1, 1, 1, 1.46667, 1, -3.81789e-09, 2.4042e-07, -2.98023e-08, -0.00293821, -0.0027274, -0.000378774, 0.999992, 1, 1, 1, 1.53333, 1, -3.06407e-08, 2.43868e-07, 2.98023e-08, -0.00294275, -0.0027102, -0.000376765, 0.999992, 1, 1, 1, 1.6, 1, -3.51105e-08, 2.59745e-07, 0, -0.00294786, -0.00269648, -0.000375688, 0.999992, 1, 1, 1, 1.66667, 1, -9.27942e-11, 5.82117e-08, 0, -0.00295341, -0.00268617, -0.000375485, 0.999992, 1, 1, 1, 1.73333, 1, -2.02096e-08, 8.42865e-08, 5.96046e-08, -0.00289946, -0.00310053, -0.000374773, 0.999991, 1, 1, 1, 1.8, 1, 2.74742e-08, 3.04493e-07, 2.98023e-08, -0.00292344, -0.00306955, -0.000376445, 0.999991, 1, 1, 1, 1.86667, 1, 3.6322e-09, 2.19466e-07, -2.98023e-08, -0.00295847, -0.00302227, -0.000378968, 0.999991, 1, 1, 1, 1.93333, 1, 3.63358e-09, 2.61886e-07, 0, -0.00300247, -0.0029581, -0.000382076, 0.999991, 1, 1, 1, 2, 1, -1.12686e-08, 2.58209e-07, -2.98023e-08, -0.00305214, -0.00287896, -0.000385801, 0.999991, 1, 1, 1, 2.06667, 1, 4.08857e-08, 1.37465e-07, 0, -0.00309696, -0.00285314, -0.000390037, 0.999991, 1, 1, 1, 2.13333, 1, -3.3248e-08, 2.15601e-07, -8.9407e-08, -0.00314539, -0.00272075, -0.000398344, 0.999991, 1, 1, 1, 2.2, 1, -6.42518e-09, 3.48315e-07, -2.98023e-08, -0.00317777, -0.00277078, -0.000403201, 0.999991, 1, 1, 1, 2.26667, 1, -2.52381e-08, 2.62865e-07, 5.96046e-08, -0.00321628, -0.00267637, -0.000406048, 0.999991, 1, 1, 1, 2.33333, 1, -5.41095e-08, 2.13041e-07, 1.19209e-07, -0.00324553, -0.00259915, -0.000408228, 0.999991, 1, 1, 1, 2.4, 1, -1.73689e-08, 2.83308e-07, -2.98023e-08, -0.00326374, -0.00254769, -0.000409595, 0.999991, 1, 1, 1, 2.46667, 1, -4.96156e-08, 2.29118e-07, 2.98023e-08, -0.00327298, -0.00252089, -0.000410172, 0.999991, 1, 1, 1, 2.54167, 1, -2.97787e-08, 3.52096e-07, -2.98023e-08, -0.00327436, -0.0025168, -0.00041036, 0.999991, 1, 1, 1 )
 
-[node name="Singer" type="Path"]
+[node name="Singer" type="Path" groups=[
+"repairable",
+]]
 
 curve = SubResource( 1 )
 script = SubResource( 2 )
@@ -330,7 +346,7 @@ _sections_unfolded = [ "Transform", "Visibility" ]
 
 [node name="PathFollow" type="PathFollow" parent="."]
 
-transform = Transform( -0.309741, 5.66999e-06, -0.950822, 3.13388e-06, 0.999999, 4.94237e-06, 0.950822, -1.44891e-06, -0.309741, -0.25987, -8.18063e-09, 0.148048 )
+transform = Transform( -0.922777, 5.94744e-06, 0.385336, 6.9751e-06, 0.999999, 1.26902e-06, -0.385336, 3.85878e-06, -0.922777, -0.25987, -8.18063e-09, 0.148048 )
 offset = 1.66
 h_offset = 0.0
 v_offset = 0.0
@@ -525,6 +541,17 @@ mesh = SubResource( 6 )
 skeleton = NodePath("..")
 material/0 = null
 material/1 = null
+
+[node name="Hilight_sphere" parent="PathFollow/StaticBody/Scene Root/Armature" instance=ExtResource( 5 )]
+
+transform = Transform( 1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0 )
+visible = false
+_sections_unfolded = [ "Transform" ]
+
+[node name="BrokenSphere" parent="PathFollow/StaticBody/Scene Root/Armature" instance=ExtResource( 6 )]
+
+transform = Transform( -0.922776, 6.97509e-06, -0.385336, 5.94746e-06, 1, 3.85878e-06, 0.385336, 1.26902e-06, -0.922776, 0.160613, 2.49623, 0.0933836 )
+visible = false
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="PathFollow/StaticBody/Scene Root"]
 

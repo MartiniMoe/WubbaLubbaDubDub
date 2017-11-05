@@ -1,16 +1,19 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://assets/models/generator.dae" type="PackedScene" id=1]
 [ext_resource path="res://assets/models/generatorArrayMesh.tres" type="ArrayMesh" id=2]
 [ext_resource path="res://scenes/Hilight_sphere.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/BrokenSphere.tscn" type="PackedScene" id=4]
 
-[sub_resource type="GDScript" id=11]
+[sub_resource type="GDScript" id=1]
 
 script/source = "extends Spatial
 
 enum State {RUNNING, BROKEN}
 var state
 var selection_dist = 3
+
+# GENERATOR
 
 func _ready():
 	state = State.RUNNING
@@ -26,6 +29,7 @@ func break():
 	global.switch_everything_off()
 	global.generator_an = false
 	state = State.BROKEN
+	$BrokenSphere.show()
 	$Particles.set_emitting(false)
 	$ParticlesBreaking.set_emitting(true)
 	$AnimationPlayer.stop_all()
@@ -51,13 +55,13 @@ func repair():
 	global.switch_everything_on()
 	global.generator_an = true
 	state = State.RUNNING
+	$BrokenSphere.hide()
 	$Particles.set_emitting(true)
 	$ParticlesBreaking.set_emitting(false)
 	$AnimationPlayer.play(\"powering\")"
 
-[sub_resource type="Animation" id=1]
+[sub_resource type="Animation" id=2]
 
-resource_name = "broken"
 length = 1.0
 loop = false
 step = 0.1
@@ -73,7 +77,7 @@ tracks/0/keys = {
 "values": [ Vector3( 1, 1.00776, 1 ) ]
 }
 
-[sub_resource type="Animation" id=2]
+[sub_resource type="Animation" id=3]
 
 length = 0.17
 loop = true
@@ -90,19 +94,19 @@ tracks/0/keys = {
 "values": [ Vector3( 1, 1, 1 ), Vector3( 0.95, 1.08343, 0.95 ), Vector3( 1, 1.1, 1 ) ]
 }
 
-[sub_resource type="Curve" id=7]
+[sub_resource type="Curve" id=4]
 
 min_value = 0.0
 max_value = 1.0
 bake_resolution = 100
 _data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 0 ), -3.30637, 0.0, 0, 0 ]
 
-[sub_resource type="CurveTexture" id=8]
+[sub_resource type="CurveTexture" id=5]
 
 width = 2048
-curve = SubResource( 7 )
+curve = SubResource( 4 )
 
-[sub_resource type="ParticlesMaterial" id=5]
+[sub_resource type="ParticlesMaterial" id=6]
 
 render_priority = 0
 trail_divisor = 1
@@ -131,7 +135,7 @@ angle = 0.0
 angle_random = 0.0
 scale = 1.0
 scale_random = 0.0
-scale_curve = SubResource( 8 )
+scale_curve = SubResource( 5 )
 color = Color( 1, 1, 1, 1 )
 hue_variation = 0.0
 hue_variation_random = 0.0
@@ -142,7 +146,7 @@ anim_offset_random = 0.0
 anim_loop = false
 _sections_unfolded = [ "Scale", "Trail" ]
 
-[sub_resource type="SphereMesh" id=6]
+[sub_resource type="SphereMesh" id=7]
 
 radius = 0.2
 height = 0.2
@@ -150,7 +154,7 @@ radial_segments = 64
 rings = 32
 is_hemisphere = false
 
-[sub_resource type="SpatialMaterial" id=12]
+[sub_resource type="SpatialMaterial" id=8]
 
 render_priority = 0
 flags_transparent = false
@@ -252,7 +256,7 @@ is_hemisphere = false
 "repairable",
 ] instance=ExtResource( 1 )]
 
-script = SubResource( 11 )
+script = SubResource( 1 )
 
 [node name="Generator" parent="."]
 
@@ -262,8 +266,8 @@ _sections_unfolded = [ "Transform" ]
 
 [node name="AnimationPlayer" parent="."]
 
-anims/broken = SubResource( 1 )
-anims/powering = SubResource( 2 )
+anims/broken = SubResource( 2 )
+anims/powering = SubResource( 3 )
 autoplay = "powering"
 _sections_unfolded = [ "playback" ]
 
@@ -292,16 +296,16 @@ fract_delta = true
 visibility_aabb = Rect3( -4, -4, -4, 8, 8, 8 )
 local_coords = true
 draw_order = 0
-process_material = SubResource( 5 )
+process_material = SubResource( 6 )
 draw_passes = 1
-draw_pass_1 = SubResource( 6 )
+draw_pass_1 = SubResource( 7 )
 _sections_unfolded = [ "Draw Passes", "Drawing", "Geometry", "LOD", "Process Material", "Time", "Transform" ]
 
 [node name="ParticlesBreaking" type="Particles" parent="."]
 
 transform = Transform( 1, 0, 0, 0, -1, 3.25841e-07, 0, -3.25841e-07, -1, 0, 2.47041, 0 )
 layers = 1
-material_override = SubResource( 12 )
+material_override = SubResource( 8 )
 cast_shadow = 1
 extra_cull_margin = 0.0
 use_in_baked_light = false
@@ -339,5 +343,10 @@ process_mode = 1
 wait_time = 8.0
 one_shot = true
 autostart = false
+
+[node name="BrokenSphere" parent="." instance=ExtResource( 4 )]
+
+transform = Transform( 1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 7.24285, 0 )
+visible = false
 
 

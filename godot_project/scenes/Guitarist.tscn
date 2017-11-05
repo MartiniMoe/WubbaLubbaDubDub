@@ -1,8 +1,10 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://assets/models/ukulele-texture.png" type="Texture" id=1]
 [ext_resource path="res://assets/models/guitar_body.tres" type="Material" id=2]
 [ext_resource path="res://assets/models/guitar_head.tres" type="Material" id=3]
+[ext_resource path="res://scenes/Hilight_sphere.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scenes/BrokenSphere.tscn" type="PackedScene" id=5]
 
 [sub_resource type="GDScript" id=1]
 
@@ -10,25 +12,33 @@ script/source = "extends Spatial
 
 enum State {FUNCTIONAL, BROKEN}
 var state = State.FUNCTIONAL
+var selection_dist = 3
 
 var timer=0.0
 var togo=Vector2(0,0)
 
+# GUITARIST
+
 func _ready():
-	# Called every time the node is added to the scene.
-	# Initialization here
 	set_physics_process(true)
 	$\"StaticBody/Scene Root/AnimationPlayer\".play(\"default\")
 	$\"StaticBody/Scene Root/AnimationPlayer\".get_animation(\"default\").set_loop(true)
-	pass
 
 func set_broken(var broken):
 	if broken:
+		print(\"Lead guitarist broken\")
 		$\"StaticBody/Scene Root/AnimationPlayer\".stop_all()
 		state = State.BROKEN
+		$\"StaticBody/Scene Root/Armature/BrokenSphere\".show()
 	else:
+		print(\"Lead guitarist repaired\")
 		$\"StaticBody/Scene Root/AnimationPlayer\".play(\"default\")
+		MusicBand.get_node(\"LeadGuitar\").set_volume_db(0)
 		state = State.FUNCTIONAL
+		$\"StaticBody/Scene Root/Armature/BrokenSphere\".hide()
+
+func try_repair():
+	set_broken(false)
 
 func _physics_process(delta):
 	timer+=delta
@@ -38,11 +48,11 @@ func _physics_process(delta):
 	if(timer>1.0):
 		togo=Vector2(randf()*2-1,randf()*2-1)
 		timer=0
-#func _process(delta):
-#	# Called every frame. Delta is time since last frame.
-#	# Update game logic here.
-#	pass
-"
+	
+	if state == State.BROKEN && (get_node(\"/root/Main/Player\").global_transform.origin - global_transform.origin).length() < selection_dist:
+		$\"StaticBody/Scene Root/Armature/Hilight_sphere\".show()
+	else:
+		$\"StaticBody/Scene Root/Armature/Hilight_sphere\".hide()"
 
 [sub_resource type="SpatialMaterial" id=2]
 
@@ -619,7 +629,9 @@ tracks/24/keys = PoolRealArray( 0.0416666, 1, -0.620636, 0.0554773, 0.176727, 0,
 radius = 0.4
 height = 2.0
 
-[node name="Guitarist" type="Spatial"]
+[node name="Guitarist" type="Spatial" groups=[
+"repairable",
+]]
 
 script = SubResource( 1 )
 
@@ -800,6 +812,17 @@ mesh = SubResource( 9 )
 skeleton = NodePath("..")
 material/0 = null
 material/1 = null
+
+[node name="Hilight_sphere" parent="StaticBody/Scene Root/Armature" instance=ExtResource( 4 )]
+
+transform = Transform( 1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, -0.0713007, 0 )
+visible = false
+_sections_unfolded = [ "Transform" ]
+
+[node name="BrokenSphere" parent="StaticBody/Scene Root/Armature" instance=ExtResource( 5 )]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.3741, 0 )
+visible = false
 
 [node name="Sun" type="DirectionalLight" parent="StaticBody/Scene Root"]
 

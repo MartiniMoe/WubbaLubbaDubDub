@@ -23,7 +23,7 @@ var time = 0 # the longer the crowd is happy the better, should correlate to the
 # Maximum times for things to break in seconds
 var max_time_for_one_spot_to_fail = 180
 var max_time_for_generator_to_fail = 240
-var max_time_for_one_instrument_to_fail = 240
+var max_time_for_one_instrument_to_fail = 180
 
 func _ready():
 	randomize()
@@ -43,11 +43,11 @@ func _ready():
 	
 	set_process(true)
 
-var time_for_one_spot_to_fail = randi()%max_time_for_one_spot_to_fail+1
+var time_for_one_spot_to_fail = randi()%max_time_for_one_spot_to_fail
 var time_elapsed_for_one_spot_to_fail = 0.0
-var time_for_generator_to_fail = randi()%max_time_for_generator_to_fail+1
+var time_for_generator_to_fail = randi()%max_time_for_generator_to_fail
 var time_elapsed_for_generator_to_fail = 0.0
-var time_for_one_instrument_to_fail = randi()%max_time_for_one_instrument_to_fail+1
+var time_for_one_instrument_to_fail = randi()%max_time_for_one_instrument_to_fail
 var time_elapsed_for_one_instrument_to_fail = 0.0
 
 func _process(delta):
@@ -71,6 +71,8 @@ func _process(delta):
 		var instrument_to_fail = randi() % instruments.size()
 		instruments[instrument_to_fail].set_volume_db(-80)
 		musicians[instrument_to_fail].set_broken(true)
+		time_elapsed_for_one_instrument_to_fail = 0.0
+		time_for_one_instrument_to_fail = randi() % max_time_for_one_instrument_to_fail
 	
 func switch_everything_off():
 	for spot in spots:
