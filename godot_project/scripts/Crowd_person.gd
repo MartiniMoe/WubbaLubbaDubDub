@@ -6,7 +6,7 @@ extends StaticBody
 export var laune=100.0
 var fan=Vector3(0,0,0)
 var timer=2
-var tomato = load("res://scenes/tomato.tscn")
+var tomato = preload("res://scenes/tomato.tscn")
 var seen=false
 
 func _ready():
@@ -30,7 +30,6 @@ func _physics_process(delta):
 	if timer>=0:
 		timer-=1
 	if timer==0:
-		print("test")
 		$"Scene Root/AnimationTreePlayer".advance(randf())
 	if((laune<20 or (laune<50 and global.playervisible))and !seen):
 		$Timer.start()
