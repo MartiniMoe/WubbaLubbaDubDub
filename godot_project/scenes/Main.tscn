@@ -165,12 +165,12 @@ directional_shadow_depth_range = 0
 directional_shadow_max_distance = 200.0
 _sections_unfolded = [ "Directional Shadow", "Light", "Shadow" ]
 
-[node name="Spatial" parent="." instance=ExtResource( 12 )]
+[node name="Crowd" parent="." instance=ExtResource( 12 )]
 
-transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -2.96097, -6.07362, 13.3557 )
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -2.96097, -6.07362, 10.0697 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="Spatial2" parent="." instance=ExtResource( 13 )]
+[node name="Guitarist" parent="." instance=ExtResource( 13 )]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.719948, -4.99713, 1.01733 )
 
