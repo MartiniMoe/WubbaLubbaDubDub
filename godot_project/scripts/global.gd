@@ -7,8 +7,10 @@ var strobo = null
 var instruments = []
 var instruments_an = [ true, true, true ]
 var musicians = []
-var generator_an = true
-var points = []
+var generator_an=true
+var points=[]
+var playerpos=Vector3(0,0,0)
+var playervisible
 
 var mood = 100 # as a percentage value? people get mad, if stuff is broken
                # for a longer period or something?
@@ -24,10 +26,6 @@ var time = 0 # the longer the crowd is happy the better, should correlate to the
 var max_time_for_one_spot_to_fail = 180
 var max_time_for_generator_to_fail = 240
 var max_time_for_one_instrument_to_fail = 180
-
-var game_over = false
-
-var game_over = false
 
 var game_over = false
 
