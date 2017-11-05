@@ -29,6 +29,8 @@ var max_time_for_one_instrument_to_fail = 180
 
 var game_over = false
 
+var game_over = false
+
 func _ready():
 	randomize()
 	
