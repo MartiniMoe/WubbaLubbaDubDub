@@ -30,10 +30,12 @@ func set_broken(var broken):
 		$\"StaticBody/Scene Root/AnimationPlayer\".stop_all()
 		state = State.BROKEN
 		$\"StaticBody/Scene Root/Armature/BrokenSphere\".show()
+		MusicBand.get_node(\"RythmGuitar\").set_volume_db(-80)
 	else:
 		print(\"Lead guitarist repaired\")
 		$\"StaticBody/Scene Root/AnimationPlayer\".play(\"default\")
 		MusicBand.get_node(\"LeadGuitar\").set_volume_db(0)
+		MusicBand.get_node(\"RythmGuitar\").set_volume_db(0)
 		state = State.FUNCTIONAL
 		$\"StaticBody/Scene Root/Armature/BrokenSphere\".hide()
 

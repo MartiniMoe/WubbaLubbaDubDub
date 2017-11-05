@@ -23,7 +23,7 @@ var time = 0 # the longer the crowd is happy the better, should correlate to the
 # Maximum times for things to break in seconds
 var max_time_for_one_spot_to_fail = 180
 var max_time_for_generator_to_fail = 240
-var max_time_for_one_instrument_to_fail = 180
+var max_time_for_one_instrument_to_fail = 10
 
 func _ready():
 	randomize()
@@ -40,6 +40,8 @@ func _ready():
 	musicians.append(get_tree().get_root().get_node("Main/Guitarist"))
 	instruments.append(MusicBand.get_node("Singer"))
 	musicians.append(get_tree().get_root().get_node("Main/Singer"))
+	instruments.append(MusicBand.get_node("Bass"))
+	musicians.append(get_tree().get_root().get_node("Main/Bassist"))
 	
 	set_process(true)
 
