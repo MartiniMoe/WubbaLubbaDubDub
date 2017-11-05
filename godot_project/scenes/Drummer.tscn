@@ -1,7 +1,7 @@
 [gd_scene load_steps=28 format=2]
 
 [ext_resource path="res://assets/models/Humanbody.material" type="Material" id=1]
-[ext_resource path="res://assets/models/Humanhead.material" type="Material" id=2]
+[ext_resource path="res://assets/models/playerHeadMaterial.material" type="Material" id=2]
 [ext_resource path="res://assets/models/Drumstickwood.material" type="Material" id=3]
 [ext_resource path="res://assets/models/Drumsticktips.material" type="Material" id=4]
 [ext_resource path="res://assets/models/Sitzplastik.material" type="Material" id=5]
@@ -44,6 +44,7 @@ surfaces/1 = {
 "vertex_count": 22
 }
 custom_aabb/custom_aabb = Rect3( 0, 0, 0, 0, 0, 0 )
+_sections_unfolded = [ "surface_2" ]
 
 [sub_resource type="ArrayMesh" id=2]
 
@@ -220,6 +221,7 @@ surfaces/4 = {
 "vertex_count": 66
 }
 custom_aabb/custom_aabb = Rect3( 0, 0, 0, 0, 0, 0 )
+_sections_unfolded = [ "surface_2", "surface_4", "surface_5" ]
 
 [sub_resource type="ArrayMesh" id=6]
 

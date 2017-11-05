@@ -3,7 +3,7 @@
 [ext_resource path="res://assets/models/Material.material" type="Material" id=1]
 [ext_resource path="res://assets/models/Material_001.material" type="Material" id=2]
 [ext_resource path="res://assets/textures/human_body.png" type="Texture" id=3]
-[ext_resource path="res://assets/models/Headmaterial.material" type="Material" id=4]
+[ext_resource path="res://assets/models/playerHeadMaterial.material" type="Material" id=4]
 
 [sub_resource type="Curve3D" id=1]
 
@@ -323,7 +323,7 @@ _sections_unfolded = [ "Transform", "Visibility" ]
 
 [node name="PathFollow" type="PathFollow" parent="."]
 
-transform = Transform( 0.935265, -2.54218e-07, 0.353949, 6.88895e-07, 0.999999, -1.10208e-06, -0.353949, 1.27457e-06, 0.935265, -0.25987, -8.18063e-09, 0.148048 )
+transform = Transform( -0.790104, 6.83343e-06, -0.612974, 5.19857e-06, 0.999999, 4.44723e-06, 0.612974, 3.27188e-07, -0.790104, -0.25987, -8.18063e-09, 0.148048 )
 offset = 1.66
 h_offset = 0.0
 v_offset = 0.0
