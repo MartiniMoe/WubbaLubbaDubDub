@@ -72,7 +72,8 @@ func new_game():
 	
 	get_tree().get_root().get_node("Main/Generator").repair()
 	
-	get_tree().get_root().get_node("Main/Crow"d).mood_reset()
+	get_tree().get_root().get_node("Main/Crowd").mood_reset()
+	health = 100
 	
 	strobo.show()
 	

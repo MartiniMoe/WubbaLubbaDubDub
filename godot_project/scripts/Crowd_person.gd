@@ -39,7 +39,7 @@ func _physics_process(delta):
 	$"Scene Root/AnimationTreePlayer".blend2_node_set_amount("blend2",min(laune-30.0/40.0,1))
 	
 func mood_reset():
-	mood=100.0
+	laune=100.0
 	seen=false
 	$Timer.stop()
 
