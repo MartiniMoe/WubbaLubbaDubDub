@@ -9,7 +9,7 @@ var timer=2
 
 func _ready():
 	randomize()
-	Vector3(randf(),randf(),randf()).normalized() # decides who to focus on how much
+	fan=Vector3(randf(),randf(),randf()).normalized() # decides who to focus on how much
 	
 	set_physics_process(true)
 	$"Scene Root/AnimationTreePlayer".set_active(true)
