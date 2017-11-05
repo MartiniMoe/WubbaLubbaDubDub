@@ -19,10 +19,6 @@ config/icon="res://icon.png"
 global="*res://scripts/global.gd"
 MusicBand="*res://scenes/MusicBand.tscn"
 
-[display]
-
-window/stretch/mode="2d"
-
 [gdnative]
 
 singletons=[  ]

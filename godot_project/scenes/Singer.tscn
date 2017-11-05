@@ -17,11 +17,10 @@ _data = {
 
 script/source = "extends Path
 
-# class member variables go here, for example:
-# var a = 2
-# var b = \"textvar\"
 var forward=true
 
+enum State {FUNCTIONAL, BROKEN}
+var state = State.FUNCTIONAL
 
 func _ready():
 	# Called every time the node is added to the scene.
@@ -37,7 +36,8 @@ func _ready():
 func _physics_process(delta):
 	#$\"PathFollow/StaticBody/Scene Root/AnimationPlayer\".get_animation(\"Sing\").track_get_key_time(\"Armature/Skeleton:Bone.007\").
 	var offsetnow=$PathFollow.get_offset()
-	$PathFollow.set_offset(offsetnow+0.05)
+	if state == State.FUNCTIONAL:
+		$PathFollow.set_offset(offsetnow+delta)
 	if $PathFollow.rotation.y<PI/2 and $PathFollow.rotation.y>-PI/2:
 		$PathFollow.rotate_y(PI)
 		if(forward):
@@ -50,7 +50,14 @@ func _physics_process(delta):
 #	# Called every frame. Delta is time since last frame.
 #	# Update game logic here.
 #	pass
-"
+
+func set_broken(var broken):
+	if broken:
+		$\"PathFollow/StaticBody/Scene Root/AnimationTreePlayer\".set_active(false)
+		state = State.BROKEN
+	else:
+		$\"PathFollow/StaticBody/Scene Root/AnimationTreePlayer\".set_active(true)
+		state = State.FUNCTIONAL"
 
 [sub_resource type="CapsuleShape" id=3]
 
@@ -323,7 +330,7 @@ _sections_unfolded = [ "Transform", "Visibility" ]
 
 [node name="PathFollow" type="PathFollow" parent="."]
 
-transform = Transform( -0.790104, 6.83343e-06, -0.612974, 5.19857e-06, 0.999999, 4.44723e-06, 0.612974, 3.27188e-07, -0.790104, -0.25987, -8.18063e-09, 0.148048 )
+transform = Transform( -0.309741, 5.66999e-06, -0.950822, 3.13388e-06, 0.999999, 4.94237e-06, 0.950822, -1.44891e-06, -0.309741, -0.25987, -8.18063e-09, 0.148048 )
 offset = 1.66
 h_offset = 0.0
 v_offset = 0.0
@@ -557,16 +564,16 @@ data = {
 "position": Vector2( 528.642, 72.9533 ),
 "type": "output"
 }, {
+"id": "Walkspeed",
+"position": Vector2( 201.911, 113.952 ),
+"scale": 3.0,
+"type": "timescale"
+}, {
 "filter": [  ],
 "from": "walk forward",
 "id": "anim 2",
 "position": Vector2( 38.0234, 156.877 ),
 "type": "animation"
-}, {
-"id": "Walkspeed",
-"position": Vector2( 201.911, 113.952 ),
-"scale": 3.0,
-"type": "timescale"
 } ]
 }
 

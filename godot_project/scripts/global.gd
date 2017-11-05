@@ -6,7 +6,7 @@ var spots_standing = []
 var strobo = null
 var instruments = []
 var instruments_an = [true, true, true]
-var musiciansAnimations = []
+var musicians = []
 var generator_an=true
 var points=[]
 
@@ -23,7 +23,7 @@ var time = 0 # the longer the crowd is happy the better, should correlate to the
 # Maximum times for things to break in seconds
 var max_time_for_one_spot_to_fail = 180
 var max_time_for_generator_to_fail = 240
-var max_time_for_one_instrument_to_fail = 11
+var max_time_for_one_instrument_to_fail = 240
 
 func _ready():
 	randomize()
@@ -35,11 +35,11 @@ func _ready():
 	spots_standing.append(get_tree().get_root().get_node("Main/Spotlight_unten2"))
 	strobo = get_tree().get_root().get_node("Main/Strobo")
 	instruments.append(MusicBand.get_node("Drums"))
-	musiciansAnimations.append(get_tree().get_root().get_node("Main/Drummer/AnimationPlayer"))
-	#instruments.append(MusicBand.get_node("Bass"))
+	musicians.append(get_tree().get_root().get_node("Main/Drummer"))
 	instruments.append(MusicBand.get_node("LeadGuitar"))
-	musiciansAnimations.append(get_tree().get_root().get_node("Main/Guitarist/StaticBody/Scene Root/AnimationPlayer"))
-	#instruments.append(MusicBand.get_node("RythmGuitar"))
+	musicians.append(get_tree().get_root().get_node("Main/Guitarist"))
+	instruments.append(MusicBand.get_node("Singer"))
+	musicians.append(get_tree().get_root().get_node("Main/Singer"))
 	
 	set_process(true)
 
@@ -70,7 +70,7 @@ func _process(delta):
 	if time_elapsed_for_one_instrument_to_fail > time_for_one_instrument_to_fail:
 		var instrument_to_fail = randi() % instruments.size()
 		instruments[instrument_to_fail].set_volume_db(-80)
-		musiciansAnimations[instrument_to_fail].stop_all()
+		musicians[instrument_to_fail].set_broken(true)
 	
 func switch_everything_off():
 	for spot in spots:
