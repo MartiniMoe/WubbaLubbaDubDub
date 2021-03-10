@@ -123,11 +123,11 @@ func _process(delta):
 func switch_everything_off():
 	for spot in spots:
 		spot.get_node("TheSpot/Cylinder/SpotLight").light_energy = 0
-		spot.get_node("AnimationPlayer").stop_all()
+		spot.get_node("AnimationPlayer").stop()
 	for spot_standing in spots_standing:
 		spot_standing.get_node("Cylinder_001.002/Cylinder_001.001/Cylinder_001/SpotLight").light_energy = 0
-		spot_standing.get_node("AnimationPlayer").stop_all()
-	strobo.get_node("AnimationPlayer").stop_all()
+		spot_standing.get_node("AnimationPlayer").stop()
+	strobo.get_node("AnimationPlayer").stop()
 
 func switch_everything_on():
 	for spot in spots:

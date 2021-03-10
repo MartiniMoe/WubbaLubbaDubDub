@@ -6,7 +6,6 @@
 [ext_resource path="res://scenes/BrokenSphere.tscn" type="PackedScene" id=4]
 
 [sub_resource type="GDScript" id=1]
-
 script/source = "extends Spatial
 
 enum State {RUNNING, BROKEN}
@@ -32,7 +31,7 @@ func break():
 	$BrokenSphere.show()
 	$Particles.set_emitting(false)
 	$ParticlesBreaking.set_emitting(true)
-	$AnimationPlayer.stop_all()
+	$AnimationPlayer.stop()
 
 var repair_needed_times = 10
 var repair_counter = 0
@@ -58,18 +57,16 @@ func repair():
 	$BrokenSphere.hide()
 	$Particles.set_emitting(true)
 	$ParticlesBreaking.set_emitting(false)
-	$AnimationPlayer.play(\"powering\")"
+	$AnimationPlayer.play(\"powering\")
+"
 
 [sub_resource type="Animation" id=2]
-
-length = 1.0
-loop = false
-step = 0.1
 tracks/0/type = "value"
 tracks/0/path = NodePath("Generator:scale")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
+tracks/0/enabled = true
 tracks/0/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
@@ -78,15 +75,14 @@ tracks/0/keys = {
 }
 
 [sub_resource type="Animation" id=3]
-
 length = 0.17
 loop = true
-step = 0.1
 tracks/0/type = "value"
 tracks/0/path = NodePath("Generator:scale")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
+tracks/0/enabled = true
 tracks/0/keys = {
 "times": PoolRealArray( 0, 0.0834297, 0.1 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
@@ -95,258 +91,68 @@ tracks/0/keys = {
 }
 
 [sub_resource type="Curve" id=4]
-
-min_value = 0.0
-max_value = 1.0
-bake_resolution = 100
 _data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 0 ), -3.30637, 0.0, 0, 0 ]
 
 [sub_resource type="CurveTexture" id=5]
-
-width = 2048
 curve = SubResource( 4 )
 
 [sub_resource type="ParticlesMaterial" id=6]
-
-render_priority = 0
-trail_divisor = 1
-emission_shape = 0
-flag_align_y = false
-flag_rotate_y = false
-flag_disable_z = false
-spread = 45.0
-flatness = 0.0
-gravity = Vector3( 0, -9.8, 0 )
 initial_velocity = 1.0
-initial_velocity_random = 0.0
-angular_velocity = 0.0
-angular_velocity_random = 0.0
-orbit_velocity = 0.0
-orbit_velocity_random = 0.0
-linear_accel = 0.0
-linear_accel_random = 0.0
-radial_accel = 0.0
-radial_accel_random = 0.0
-tangential_accel = 0.0
-tangential_accel_random = 0.0
-damping = 0.0
-damping_random = 0.0
-angle = 0.0
-angle_random = 0.0
-scale = 1.0
-scale_random = 0.0
 scale_curve = SubResource( 5 )
-color = Color( 1, 1, 1, 1 )
-hue_variation = 0.0
-hue_variation_random = 0.0
-anim_speed = 0.0
-anim_speed_random = 0.0
-anim_offset = 0.0
-anim_offset_random = 0.0
-anim_loop = false
-_sections_unfolded = [ "Scale", "Trail" ]
 
 [sub_resource type="SphereMesh" id=7]
-
 radius = 0.2
 height = 0.2
-radial_segments = 64
-rings = 32
-is_hemisphere = false
 
 [sub_resource type="SpatialMaterial" id=8]
-
-render_priority = 0
-flags_transparent = false
-flags_unshaded = false
-flags_vertex_lighting = false
-flags_no_depth_test = false
-flags_use_point_size = false
-flags_world_triplanar = false
-flags_fixed_size = false
-vertex_color_use_as_albedo = false
-vertex_color_is_srgb = false
 params_diffuse_mode = 1
-params_specular_mode = 0
-params_blend_mode = 0
-params_cull_mode = 0
-params_depth_draw_mode = 0
-params_line_width = 1.0
-params_point_size = 1.0
-params_billboard_mode = 0
-params_grow = false
-params_use_alpha_scissor = false
 albedo_color = Color( 0.292969, 0.292969, 0.292969, 1 )
-metallic = 0.0
-metallic_specular = 0.5
-metallic_texture_channel = 0
 roughness = 0.0
-roughness_texture_channel = 0
-emission_enabled = false
-normal_enabled = false
-rim_enabled = false
-clearcoat_enabled = false
-anisotropy_enabled = false
-ao_enabled = false
-depth_enabled = false
-subsurf_scatter_enabled = false
-transmission_enabled = false
-refraction_enabled = false
-detail_enabled = false
-uv1_scale = Vector3( 1, 1, 1 )
-uv1_offset = Vector3( 0, 0, 0 )
-uv1_triplanar = false
-uv1_triplanar_sharpness = 1.0
-uv2_scale = Vector3( 1, 1, 1 )
-uv2_offset = Vector3( 0, 0, 0 )
-uv2_triplanar = false
-uv2_triplanar_sharpness = 1.0
-proximity_fade_enable = false
-distance_fade_enable = false
-_sections_unfolded = [ "Albedo" ]
 
 [sub_resource type="ParticlesMaterial" id=9]
-
-render_priority = 0
-trail_divisor = 1
-emission_shape = 0
-flag_align_y = false
-flag_rotate_y = false
-flag_disable_z = false
-spread = 45.0
-flatness = 0.0
-gravity = Vector3( 0, -9.8, 0 )
 initial_velocity = 1.0
-initial_velocity_random = 0.0
 angular_velocity = 9.29526e+18
-angular_velocity_random = 0.0
-orbit_velocity = 0.0
-orbit_velocity_random = 0.0
-linear_accel = 0.0
-linear_accel_random = 0.0
-radial_accel = 0.0
-radial_accel_random = 0.0
-tangential_accel = 0.0
-tangential_accel_random = 0.0
-damping = 0.0
-damping_random = 0.0
-angle = 0.0
-angle_random = 0.0
-scale = 1.0
-scale_random = 0.0
 color = Color( 0.167969, 0.167969, 0.167969, 1 )
-hue_variation = 0.0
-hue_variation_random = 0.0
-anim_speed = 0.0
-anim_speed_random = 0.0
-anim_offset = 0.0
-anim_offset_random = 0.0
-anim_loop = false
-_sections_unfolded = [ "Animation", "Color", "Hue Variation", "Scale", "Trail" ]
 
 [sub_resource type="SphereMesh" id=10]
-
 radius = 0.8
 height = 1.6
-radial_segments = 64
-rings = 32
-is_hemisphere = false
 
 [node name="Generator" groups=[
 "repairable",
 ] instance=ExtResource( 1 )]
-
 script = SubResource( 1 )
 
-[node name="Generator" parent="."]
-
+[node name="Generator" parent="." index="0"]
 transform = Transform( 0.987012, 0, 0, 0, 1.02167, 0, 0, 0, 0.987012, 0, 0.0319278, 0 )
 mesh = ExtResource( 2 )
-_sections_unfolded = [ "Transform" ]
 
-[node name="AnimationPlayer" parent="."]
-
+[node name="AnimationPlayer" parent="." index="1"]
+autoplay = "powering"
 anims/broken = SubResource( 2 )
 anims/powering = SubResource( 3 )
-autoplay = "powering"
-_sections_unfolded = [ "playback" ]
 
-[node name="Particles" type="Particles" parent="."]
-
+[node name="Particles" type="Particles" parent="." index="2"]
 transform = Transform( 1, 0, 0, 0, -1, 3.25841e-07, 0, -3.25841e-07, -1, 0, 2.71003, 0.45899 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
-emitting = true
-amount = 8
-lifetime = 1.0
-one_shot = false
-preprocess = 0.0
-speed_scale = 1.0
 explosiveness = 0.9
-randomness = 0.0
-fixed_fps = 0
-fract_delta = true
-visibility_aabb = Rect3( -4, -4, -4, 8, 8, 8 )
-local_coords = true
-draw_order = 0
 process_material = SubResource( 6 )
-draw_passes = 1
 draw_pass_1 = SubResource( 7 )
-_sections_unfolded = [ "Draw Passes", "Drawing", "Geometry", "LOD", "Process Material", "Time", "Transform" ]
 
-[node name="ParticlesBreaking" type="Particles" parent="."]
-
+[node name="ParticlesBreaking" type="Particles" parent="." index="3"]
 transform = Transform( 1, 0, 0, 0, -1, 3.25841e-07, 0, -3.25841e-07, -1, 0, 2.47041, 0 )
-layers = 1
 material_override = SubResource( 8 )
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
 emitting = false
-amount = 8
-lifetime = 1.0
-one_shot = false
-preprocess = 0.0
-speed_scale = 1.0
-explosiveness = 0.0
-randomness = 0.0
-fixed_fps = 0
-fract_delta = true
-visibility_aabb = Rect3( -4, -4, -4, 8, 8, 8 )
-local_coords = true
-draw_order = 0
 process_material = SubResource( 9 )
-draw_passes = 1
 draw_pass_1 = SubResource( 10 )
-_sections_unfolded = [ "Draw Passes", "Drawing", "Geometry", "Process Material", "Time", "Transform" ]
 
-[node name="Hilight_sphere" parent="." instance=ExtResource( 3 )]
-
+[node name="Hilight_sphere" parent="." index="4" instance=ExtResource( 3 )]
 transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 1.3466, 0 )
 visible = false
-_sections_unfolded = [ "Transform" ]
 
-[node name="Timer" type="Timer" parent="."]
-
-process_mode = 1
+[node name="Timer" type="Timer" parent="." index="5"]
 wait_time = 8.0
 one_shot = true
-autostart = false
 
-[node name="BrokenSphere" parent="." instance=ExtResource( 4 )]
-
+[node name="BrokenSphere" parent="." index="6" instance=ExtResource( 4 )]
 transform = Transform( 1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 7.24285, 0 )
 visible = false
-
-

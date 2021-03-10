@@ -4,6 +4,11 @@ importer="ogg_vorbis"
 type="AudioStreamOGGVorbis"
 path="res://.import/singer.ogg-68ba39c03e78b0312cfc19cd5cbeaf1f.oggstr"
 
+[deps]
+
+source_file="res://assets/sounds/singer.ogg"
+dest_files=[ "res://.import/singer.ogg-68ba39c03e78b0312cfc19cd5cbeaf1f.oggstr" ]
+
 [params]
 
 loop=true

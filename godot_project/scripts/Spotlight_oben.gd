@@ -26,7 +26,7 @@ func fall_down():
 	if state == State.FUNCTIONAL:
 		state = State.BROKEN
 		
-		$AnimationPlayer.stop_all()
+		$AnimationPlayer.stop()
 		$TheSpot/Cylinder/SpotLight.light_energy = 0
 		mode = RigidBody.MODE_RIGID
 		apply_impulse(Vector3(0, 0, 0), Vector3(0, -0.5, 0))
