@@ -49,9 +49,9 @@ func _ready():
 	instruments.append(MusicBand.get_node("Bass"))
 	musicians.append(get_tree().get_root().get_node("Main/Bassist"))
 	
-	time_for_one_spot_to_fail = randi()%max_time_for_one_spot_to_fail
-	time_for_generator_to_fail = randi()%max_time_for_generator_to_fail
-	time_for_one_instrument_to_fail = randi()%max_time_for_one_instrument_to_fail
+	time_for_one_spot_to_fail = randi()%(max_time_for_one_spot_to_fail/3)
+	time_for_generator_to_fail = randi()%(max_time_for_generator_to_fail/3)
+	time_for_one_instrument_to_fail = randi()%(max_time_for_one_instrument_to_fail/3)
 	
 	set_process(true)
 
